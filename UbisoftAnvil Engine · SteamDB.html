@@ -1,0 +1,4365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>UbisoftAnvil Engine · SteamDB</title>
+<link rel="preconnect" href="https://shared.fastly.steamstatic.com/">
+<link rel="preload" href="/static/fonts/Inter-Regular.woff2?v=4.1" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="/static/fonts/Inter-Bold.woff2?v=4.1" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="/static/fonts/Inter-Italic.woff2?v=4.1" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="stylesheet" integrity="sha384-ePK/BP3np+WvduzyMqs2LURxHU+DqQiquKfzS/qw2nmrdHO1o1GQ0qQO1T0OsYVz" href="/static/css/headcrab.css?v=78f2bf04fde7a7e5">
+<link rel="stylesheet" integrity="sha384-qBsdguYMpdeeaadLELvzNumliTYuOG1PBUfQ9ABRPaD+YkBnI+tJa7Roiq+csJ95" href="/static/css/sales.css?v=a81b1d82e60ca5d7">
+<link rel="alternate" type="application/rss+xml" title="SteamDB Blog" href="https://steamdb.info/api/BlogRSS/">
+<link rel="canonical" href="https://steamdb.info/tech/Engine/UbisoftAnvil/">
+<meta property="twitter:card" content="summary">
+<meta property="twitter:site" content="@SteamDB">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SteamDB">
+<meta property="og:title" content="UbisoftAnvil Engine">
+<meta name="description" content="A list of Steam games using UbisoftAnvil Engine. Ubisoft Anvil, previously known as AnvilNext, is a game engine developed by Ubisoft and first used in Assassin&apos;s Creed released in 2007.">
+<meta property="og:description" content="A list of Steam games using UbisoftAnvil Engine. Ubisoft Anvil, previously known as AnvilNext, is a game engine developed by Ubisoft and first used in Assassin&apos;s Creed released in 2007.">
+<meta property="og:image" content="https://steamdb.info/static/logos/512px.png">
+<link rel="image_src" href="https://steamdb.info/static/logos/512px.png">
+<meta name="theme-color" content="#000000">
+<link rel="manifest" href="/steamdb.webmanifest">
+<link rel="icon" type="image/svg+xml" href="/static/logos/vector_prefers_schema.svg">
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="SteamDB">
+</head>
+<body class="page-sales" itemscope itemtype="http://schema.org/WebSite" data-store-assets="https://shared.fastly.steamstatic.com/store_item_assets/steam/" data-video-cdn="https://video.fastly.steamstatic.com/" data-rev="4723f9485e">
+<a class="skip-main" href="#main" id="js-skip-main">Skip to content</a>
+<header class="header">
+<div class="header-menu-button-container">
+<button type="button" class="header-menu-button" id="js-header-hamburger" accesskey="m" aria-label="Toggle menu"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-three-bars" aria-hidden="true"><path d="M1 2.75A.75.75 0 0 1 1.75 2h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75Zm0 5A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75ZM1.75 12h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Z"></path></svg> <span>Menu</span></button>
+</div>
+<nav class="header-navbar">
+<a href="/" class="header-brand" itemprop="url"><svg width="30" height="30" viewBox="0 0 128 128" class="octicon octicon-steamdb" aria-hidden="true"><path fill-rule="evenodd" d="M63.9 0C30.5 0 3.1 11.9.1 27.1l35.6 6.7c2.9-.9 6.2-1.3 9.6-1.3l16.7-10c-.2-2.5 1.3-5.1 4.7-7.2 4.8-3.1 12.3-4.8 19.9-4.8 5.2-.1 10.5.7 15 2.2 11.2 3.8 13.7 11.1 5.7 16.3-5.1 3.3-13.3 5-21.4 4.8l-22 7.9c-.2 1.6-1.3 3.1-3.4 4.5-5.9 3.8-17.4 4.7-25.6 1.9-3.6-1.2-6-3-7-4.8L2.5 38.4c2.3 3.6 6 6.9 10.8 9.8C5 53 0 59 0 65.5c0 6.4 4.8 12.3 12.9 17.1C4.8 87.3 0 93.2 0 99.6 0 115.3 28.6 128 64 128c35.3 0 64-12.7 64-28.4 0-6.4-4.8-12.3-12.9-17 8.1-4.8 12.9-10.7 12.9-17.1 0-6.5-5-12.6-13.4-17.4 8.3-5.1 13.3-11.4 13.3-18.2 0-16.5-28.7-29.9-64-29.9zm22.8 14.2c-5.2.1-10.2 1.2-13.4 3.3-5.5 3.6-3.8 8.5 3.8 11.1 7.6 2.6 18.1 1.8 23.6-1.8s3.8-8.5-3.8-11c-3.1-1-6.7-1.5-10.2-1.5zm.3 1.7c7.4 0 13.3 2.8 13.3 6.2 0 3.4-5.9 6.2-13.3 6.2s-13.3-2.8-13.3-6.2c0-3.4 5.9-6.2 13.3-6.2zM45.3 34.4c-1.6.1-3.1.2-4.6.4l9.1 1.7a10.8 5 0 1 1-8.1 9.3l-8.9-1.7c1 .9 2.4 1.7 4.3 2.4 6.4 2.2 15.4 1.5 20-1.5s3.2-7.2-3.2-9.3c-2.6-.9-5.7-1.3-8.6-1.3zM109 51v9.3c0 11-20.2 19.9-45 19.9-24.9 0-45-8.9-45-19.9v-9.2c11.5 5.3 27.4 8.6 44.9 8.6 17.6 0 33.6-3.3 45.2-8.7zm0 34.6v8.8c0 11-20.2 19.9-45 19.9-24.9 0-45-8.9-45-19.9v-8.8c11.6 5.1 27.4 8.2 45 8.2s33.5-3.1 45-8.2z"/></svg> <span>SteamDB</span></a>
+<form class="header-search" id="js-header-form" method="get" action="/search/" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction" role="search">
+<meta itemprop="target" content="https://steamdb.info/search/?a=all&amp;q={q}">
+<input type="hidden" name="a" value="all">
+<input type="text" accesskey="/" class="field" autocomplete="off" name="q" placeholder="Search…" itemprop="query-input" aria-label="Search">
+<button type="submit" class="submit" aria-label="Perform search" tabindex="-1"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-search" aria-hidden="true"><path d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-8.997 0A4.499 4.499 0 0 0 11.5 7Z"></path></svg></button>
+</form>
+<a href="/sales/">Sales</a>
+<a href="/charts/">Charts</a>
+<a href="/calculator/">Calculator</a>
+<a href="/calendar/">Calendar</a>
+<a href="/patchnotes/">Patches</a>
+<a href="/tags/">Tags</a>
+<button type="button" class="btn btn-outline header-search-close">Close</button>
+</nav>
+<button type="button" class="header-search-mobile" aria-label="Open search"><svg width="24" height="24" viewBox="0 0 16 16" class="octicon octicon-search" aria-hidden="true"><path d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-8.997 0A4.499 4.499 0 0 0 11.5 7Z"></path></svg></button>
+<div class="header-user hide-small">
+<a class="header-login" href="/login/?page=tech%2FEngine%2FUbisoftAnvil" rel="nofollow">
+<svg width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-steam" aria-hidden="true"><path d="M8 0a8 8 0 00-8 7.47c.07.1.13.21.18.32l4.15 1.67a2.2 2.2 0 011.31-.36l1.97-2.8v-.04c0-1.65 1.37-3 3.05-3a3.03 3.03 0 013.05 3 3.03 3.03 0 01-3.12 3l-2.81 1.97c0 .3-.05.6-.17.9a2.25 2.25 0 01-4.23-.37L.4 10.56A8.01 8.01 0 108 0zm2.66 4.27c-1.12 0-2.03.9-2.03 2s.91 1.99 2.03 1.99c1.12 0 2.03-.9 2.03-2s-.9-2-2.03-2zm0 .5c.85 0 1.53.66 1.53 1.49s-.68 1.5-1.53 1.5c-.84 0-1.52-.67-1.52-1.5s.68-1.5 1.52-1.5zM5.57 9.6c-.22 0-.43.04-.62.11l1.02.42c.65.26.95.99.68 1.62-.27.63-1 .93-1.65.67l-1-.4a1.73 1.73 0 003.13-.08c.18-.42.18-.88.01-1.3A1.69 1.69 0 005.57 9.6z"/></svg> <span>Sign in</span>
+</a>
+</div>
+</header>
+<div class="header-search-suggestions">
+<div class="container" id="js-search-tips" data-a="94HE6YATEI" data-k="MTRjMDI1MGExNzdmZmE4YzA4MzMwMDQ4MDNjNDU4ZWQ3ZTQxZDdkNzZmMGE2YTJlZDViOWI1YWI1ZjQ4NDI2MnZhbGlkVW50aWw9MTc2MzA2NzM2NyZ1c2VyVG9rZW49MTY2ZDNlYWM3ZjNkMWU5YWZhMTY2NDVmZDk2M2ExMjE=">
+<div class="header-search-popular">
+<strong>POPULAR TODAY</strong>
+<a class="app" data-appid="1808500" href="/app/1808500/charts/">
+<img alt="" src="data:," data-c="1808500/542a243d39bd7ed791359be9e96c82f419b81475/capsule_231x87.jpg">
+<span class="search-name">ARC Raiders</span>
+</a>
+<a class="app" data-appid="2807960" href="/app/2807960/charts/">
+<img alt="" src="data:," data-c="2807960/d7ae078e0a543a97ff5a5d72165999535b0b1cdc/capsule_231x87.jpg">
+<span class="search-name">Battlefield™ 6</span>
+</a>
+<a class="app" data-appid="2592160" href="/app/2592160/charts/">
+<img alt="" src="data:," data-c="2592160/925ffa7e3699d5c9c1369be5d4c3369f0e907e00/capsule_231x87.jpg">
+<span class="search-name">Dispatch</span>
+</a>
+<a class="app" data-appid="3450310" href="/app/3450310/charts/">
+<img alt="" src="data:," data-c="3450310/b38d9e6151305e42163707ded29f2e6fb0d81f52/capsule_231x87.jpg">
+<span class="search-name">Europa Universalis V</span>
+</a>
+<a class="app" data-appid="252490" href="/app/252490/charts/">
+<img alt="" src="data:," data-c="252490/21aac0b6e20e1ba12f635e7deb730e32a51afbd5/capsule_231x87.jpg">
+<span class="search-name">Rust</span>
+</a>
+<a class="app" data-appid="3551340" href="/app/3551340/charts/">
+<img alt="" src="data:," data-c="3551340/89a157ed8100b4c8fa49de9fda0b3a83aece1f5e/capsule_231x87.jpg">
+<span class="search-name">Football Manager 26</span>
+</a>
+</div>
+<ul>
+<li class="hide-small">Use slash key (<kbd>/</kbd>) to focus search from anywhere</li>
+<li class="hide-small">Use arrow keys (<kbd>↑</kbd> and <kbd>↓</kbd>) to navigate suggestions, then <kbd>Enter</kbd> to go</li>
+<li class="hide-small">Use escape (<kbd>Esc</kbd>) to close search</li>
+<li style="margin-top:20px">Enter an appid to be redirected to the app page</li>
+<li>Enter a steamid (<code>7656…</code>) to be redirected to calculator</li>
+<li style="margin-top:20px">Any profile link containing <code>id/</code> or <code>profiles/</code></li>
+<li>Any text containing <code>app/</code> or <code>sub/</code> or <code>bundle/</code> or <code>depot/</code></li>
+</ul>
+</div>
+<div class="container" id="js-search-suggestions"></div>
+<div class="container header-search-enter hide-small">
+<kbd>Enter</kbd> Submit to view all results.
+<kbd>Ctrl+Enter</kbd> View and filter in instant search.
+</div>
+<div class="header-search-side-close">
+<div class="header-search-side-close-inner">Close &times;</div>
+</div>
+<div class="header-search-powered"><a href="https://www.algolia.com/?utm_content=steamdb.info&amp;utm_campaign=poweredby" rel="nofollow" target="_blank">Search powered by Algolia</a></div>
+</div>
+<div class="header-menu-container" hidden>
+<nav class="header-menu" tabindex="0">
+<ul>
+<li class="navigation-heading"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-info" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg> About</li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/discord/">Discord</a></li>
+<li><a href="/discord/bot/">Discord Bot</a></li>
+<li><a href="/faq/">FAQ &amp; help</a></li>
+<li><a href="/donate/">Donate &amp; contribute</a></li>
+<li><a href="/extension/">Browser extension</a></li>
+</ul>
+<ul>
+<li class="navigation-heading"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-search" aria-hidden="true"><path d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-8.997 0A4.499 4.499 0 0 0 11.5 7Z"></path></svg> Discovery</li>
+<li><a href="/sales/">Sales &amp; Deals</a></li>
+<li><a href="/upcoming/">Upcoming releases</a></li>
+<li><a href="/calendar/">Release calendar</a></li>
+<li><a href="/upcoming/free/">Free promotions</a></li>
+<li><a href="/bundles/">Bundles</a></li>
+<li><a href="/pricechanges/">Price changes</a></li>
+<li><a href="/sales/history/">When is next sale?</a></li>
+</ul>
+<ul>
+<li class="navigation-heading"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-tools" aria-hidden="true"><path d="M5.433 2.304A4.492 4.492 0 0 0 3.5 6c0 1.598.832 3.002 2.09 3.802.518.328.929.923.902 1.64v.008l-.164 3.337a.75.75 0 1 1-1.498-.073l.163-3.33c.002-.085-.05-.216-.207-.316A5.996 5.996 0 0 1 2 6a5.993 5.993 0 0 1 2.567-4.92 1.482 1.482 0 0 1 1.673-.04c.462.296.76.827.76 1.423v2.82c0 .082.041.16.11.206l.75.51a.25.25 0 0 0 .28 0l.75-.51A.249.249 0 0 0 9 5.282V2.463c0-.596.298-1.127.76-1.423a1.482 1.482 0 0 1 1.673.04A5.993 5.993 0 0 1 14 6a5.996 5.996 0 0 1-2.786 5.068c-.157.1-.209.23-.207.315l.163 3.33a.752.752 0 0 1-1.094.714.75.75 0 0 1-.404-.64l-.164-3.345c-.027-.717.384-1.312.902-1.64A4.495 4.495 0 0 0 12.5 6a4.492 4.492 0 0 0-1.933-3.696c-.024.017-.067.067-.067.16v2.818a1.75 1.75 0 0 1-.767 1.448l-.75.51a1.75 1.75 0 0 1-1.966 0l-.75-.51A1.75 1.75 0 0 1 5.5 5.282V2.463c0-.092-.043-.142-.067-.159Z"></path></svg> Tools</li>
+<li><a href="/charts/">Charts</a></li>
+<li><a href="/calculator/">Calculator</a></li>
+<li><a href="/patchnotes/">Patch notes</a></li>
+<li><a href="/search/">Search</a></li>
+<li><a href="/instantsearch/">Instant search</a></li>
+<li><a href="https://steamstat.us/">Steam Status</a></li>
+<li><a href="https://steamapi.xpaw.me/">Steam Web API</a></li>
+</ul>
+<ul>
+<li class="navigation-heading"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-database" aria-hidden="true"><path d="M1 3.5c0-.626.292-1.165.7-1.59.406-.422.956-.767 1.579-1.041C4.525.32 6.195 0 8 0c1.805 0 3.475.32 4.722.869.622.274 1.172.62 1.578 1.04.408.426.7.965.7 1.591v9c0 .626-.292 1.165-.7 1.59-.406.422-.956.767-1.579 1.041C11.476 15.68 9.806 16 8 16c-1.805 0-3.475-.32-4.721-.869-.623-.274-1.173-.62-1.579-1.04-.408-.426-.7-.965-.7-1.591Zm1.5 0c0 .133.058.318.282.551.227.237.591.483 1.101.707C4.898 5.205 6.353 5.5 8 5.5c1.646 0 3.101-.295 4.118-.742.508-.224.873-.471 1.1-.708.224-.232.282-.417.282-.55 0-.133-.058-.318-.282-.551-.227-.237-.591-.483-1.101-.707C11.102 1.795 9.647 1.5 8 1.5c-1.646 0-3.101.295-4.118.742-.508.224-.873.471-1.1.708-.224.232-.282.417-.282.55Zm0 4.5c0 .133.058.318.282.551.227.237.591.483 1.101.707C4.898 9.705 6.353 10 8 10c1.646 0 3.101-.295 4.118-.742.508-.224.873-.471 1.1-.708.224-.232.282-.417.282-.55V5.724c-.241.15-.503.286-.778.407C11.475 6.68 9.805 7 8 7c-1.805 0-3.475-.32-4.721-.869a6.15 6.15 0 0 1-.779-.407Zm0 2.225V12.5c0 .133.058.318.282.55.227.237.592.484 1.1.708 1.016.447 2.471.742 4.118.742 1.647 0 3.102-.295 4.117-.742.51-.224.874-.47 1.101-.707.224-.233.282-.418.282-.551v-2.275c-.241.15-.503.285-.778.406-1.247.549-2.917.869-4.722.869-1.805 0-3.475-.32-4.721-.869a6.327 6.327 0 0 1-.779-.406Z"></path></svg> Database</li>
+<li><a href="/tags/">Game tags</a></li>
+<li><a href="/developers/">Developers</a></li>
+<li><a href="/publishers/">Publishers</a></li>
+<li><a href="/badges/">Profile badges</a></li>
+<li><a href="/tech/">Engines &amp; technologies</a></li>
+<li><a href="/stats/releases/">Game releases by year</a></li>
+<li><a href="/history/">Change history</a></li>
+</ul>
+<ul>
+<li class="navigation-heading"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-number" aria-hidden="true"><path d="M9 4.75A.75.75 0 0 1 9.75 4h4a.75.75 0 0 1 .53 1.28l-1.89 1.892c.312.076.604.18.867.319.742.391 1.244 1.063 1.244 2.005 0 .653-.231 1.208-.629 1.627-.386.408-.894.653-1.408.777-1.01.243-2.225.063-3.124-.527a.751.751 0 0 1 .822-1.254c.534.35 1.32.474 1.951.322.306-.073.53-.201.67-.349.129-.136.218-.32.218-.596 0-.308-.123-.509-.444-.678-.373-.197-.98-.318-1.806-.318a.75.75 0 0 1-.53-1.28l1.72-1.72H9.75A.75.75 0 0 1 9 4.75Zm-3.587 5.763c-.35-.05-.77.113-.983.572a.75.75 0 1 1-1.36-.632c.508-1.094 1.589-1.565 2.558-1.425 1 .145 1.872.945 1.872 2.222 0 1.433-1.088 2.192-1.79 2.681-.308.216-.571.397-.772.573H7a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75c0-.69.3-1.211.67-1.61.348-.372.8-.676 1.15-.92.8-.56 1.18-.904 1.18-1.474 0-.473-.267-.69-.587-.737ZM5.604.089A.75.75 0 0 1 6 .75v4.77h.711a.75.75 0 0 1 0 1.5H3.759a.75.75 0 0 1 0-1.5H4.5V2.15l-.334.223a.75.75 0 0 1-.832-1.248l1.5-1a.75.75 0 0 1 .77-.037Z"></path></svg> Rankings</li>
+<li><a href="/stats/gameratings/?min_reviews=500">Top rated games</a></li>
+<li><a href="/stats/globaltopsellers/">Global top sellers</a></li>
+<li><a href="/topsellers/">Weekly top sellers</a></li>
+<li><a href="/stats/mostfollowed/">Most followed games</a></li>
+<li><a href="/stats/mostwished/">Most wishlisted games</a></li>
+<li><a href="/stats/wishlistactivity/">Wishlist activity</a></li>
+<li><a href="/stats/dailyactiveusers/">Daily active users</a></li>
+<li><a href="/badge/13/">Top game owners</a></li>
+<li><a href="/stats/toplevels/">Top profile levels</a></li>
+</ul>
+<ul>
+<li class="navigation-heading"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-person" aria-hidden="true"><path d="M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></svg> Account</li>
+<li><a href="/login/?page=tech%2FEngine%2FUbisoftAnvil" rel="nofollow">Sign in via Steam</a></li>
+<li><a href="/freepackages/">Free packages</a></li>
+</ul><ul class="header-socials">
+<li class="navigation-heading"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-check-circle" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm1.5 0a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm10.28-1.72-4.5 4.5a.75.75 0 0 1-1.06 0l-2-2a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l1.47 1.47 3.97-3.97a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg> Socials</li>
+<li><a href="https://bsky.app/profile/steamdb.info">Bluesky</a></li>
+<li><a href="https://infosec.exchange/@SteamDB">Mastodon</a></li>
+<li><a href="https://x.com/intent/follow?screen_name=SteamDB">X (Twitter)</a></li>
+<li><a href="https://github.com/SteamDatabase">GitHub</a></li>
+<li><a href="https://steamcommunity.com/groups/steamdb">Steam group</a></li>
+<li><a href="https://store.steampowered.com/curator/4777282/">Steam curator</a></li>
+</ul>
+<div class="header-disclaimer">SteamDB is a hobby project and is not affiliated with Valve or Steam.<br>All times on the site are UTC.</div>
+<div class="header-kbd hide-small"><kbd>M</kbd> toggle this menu <kbd>/</kbd> focus search</div>
+</nav>
+</div>
+<div id="js-notifications">
+<noscript class="noscript-toast">
+<div class="toast-header"><b>Enable JavaScript</b></div>
+<div class="toast-body">For SteamDB to function correctly, JavaScript should be enabled.</div>
+</noscript>
+</div>
+<script nonce="6cl2SdKs4zZ5NxmVlJALsLotg9w=" integrity="sha384-IG5AV4fMP6gbtGj8KftwhN67waXCGr7J7fT65P7dKTuYWxLOIYhLqqAiT77wFcO6" src="/static/js/hover.js?v=206e405787cc3fa8" defer></script>
+<script nonce="6cl2SdKs4zZ5NxmVlJALsLotg9w=" integrity="sha384-xB6KdHnhEIZ7Q4JIeKxKtk/8fxKYNserX3ISX7a9X4ztBCpi9I8QwJFqUBXYXq3t" src="/static/js/toast.js?v=c41e8a7479e11086" defer></script>
+<script nonce="6cl2SdKs4zZ5NxmVlJALsLotg9w=" integrity="sha384-xgjHnFufvyXpm7BRl7HZyfOL9jd7ZigryXnSr670p0XchSvhsb5ZvchH4O0ZueDA" src="/static/js/footer.js?v=c608c79c5b9fbf25" defer></script>
+<script nonce="6cl2SdKs4zZ5NxmVlJALsLotg9w=" integrity="sha384-42X1DVjd/rtvCzlUr5pZtziToBOx21qjB7JtHZ+XUv+E3W0IY8q2EPJf0HOG9FlU" src="/static/js/global.js?v=e365f50d58ddfebb"></script>
+<div class="body-wrap">
+<div class="body-content" id="main"><script nonce="6cl2SdKs4zZ5NxmVlJALsLotg9w=" integrity="sha384-sukLDmkddKvDcgBQvqfIKlC7lQOy0jBeVOmsODQizIccD55mwlQJQYm3f1ESyd1J" src="/static/js/vendor/dataTables.js?v=b2e90b0e691d74ab" defer></script>
+<script nonce="6cl2SdKs4zZ5NxmVlJALsLotg9w=" integrity="sha384-WpeYEybaGv/Qn8xbp9G9ExqFjDY+ZcwluXkEilLei9O9+X5v25jJoPu5gsELTh6k" src="/static/js/sales.js?v=5a97981326da1aff" defer></script>
+<script nonce="6cl2SdKs4zZ5NxmVlJALsLotg9w=" integrity="sha384-eOzFRSE0M7Vm99ZE4H40pAfkuyBqm/NpRrPvyJEJW1SQq4+6+hztOU8G1NFp2C5k" src="/static/js/timeago.js?v=78ecc545213433b5"></script>
+<div class="header-sales page-type-tech" style="background-image:url(https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/33230/library_hero.jpg)">
+<div class="container container-sales">
+<div>
+<h1 class="header-title">
+<span class="muted"><a href="/tech/">Technologies</a> »</span> Engine <span class="muted">»</span> UbisoftAnvil</h1>
+<h2 class="header-subtitle"><span id="js-sales-count">39</span> products match your filters</h2>
+</div>
+</div>
+</div>
+<div class="container container-sales">
+<div class="row">
+<div class="span12 filters-container">
+<details class="filters-details js-filters-details-loading" open>
+<summary>
+<svg width="24" height="24" viewBox="0 0 16 16" class="octicon octicon-filter" aria-hidden="true"><path d="M.75 3h14.5a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1 0-1.5ZM3 7.75A.75.75 0 0 1 3.75 7h8.5a.75.75 0 0 1 0 1.5h-8.5A.75.75 0 0 1 3 7.75Zm3 4a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>
+<span class="is-closed">Expand filters</span>
+<span class="is-open">Close filters</span>
+</summary>
+<form method="get" id="js-filters" data-page-type="tech">
+<div class="filter-wrap">
+<div class="filter-block">
+<label class="steamy-checkbox-control tooltipped" aria-label="Requires our browser extension">
+<input type="checkbox" id="js-wishlisted-only" disabled><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-checklist" aria-hidden="true"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"></path></svg><span>Show only wishlisted</span>
+</label>
+<label class="steamy-checkbox-control">
+<input type="checkbox" id="js-owned-only" disabled><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-list-unordered" aria-hidden="true"><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg><span>Show only owned</span>
+</label>
+<label class="steamy-checkbox-control tooltipped" aria-label="Requires our browser extension">
+<input type="checkbox" id="js-followed-only" disabled><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-bookmark" aria-hidden="true"><path d="M3 2.75C3 1.784 3.784 1 4.75 1h6.5c.966 0 1.75.784 1.75 1.75v11.5a.75.75 0 0 1-1.227.579L8 11.722l-3.773 3.107A.751.751 0 0 1 3 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.91l3.023-2.489a.75.75 0 0 1 .954 0l3.023 2.49V2.75a.25.25 0 0 0-.25-.25Z"></path></svg><span>Show only followed</span>
+</label>
+</div>
+<div class="filter-block">
+<label class="steamy-checkbox-control tooltipped" aria-label="Requires our browser extension">
+<input type="checkbox" id="js-hide-wishlisted" disabled><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-checklist" aria-hidden="true"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"></path></svg><span>Hide wished and followed</span>
+</label>
+<label class="steamy-checkbox-control tooltipped" aria-label="Requires our browser extension">
+<input type="checkbox" id="js-hide-ignored-games" disabled><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-no-entry" aria-hidden="true"><path d="M4.25 7.25a.75.75 0 0 0 0 1.5h7.5a.75.75 0 0 0 0-1.5h-7.5Z"></path><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-1.5 0a6.5 6.5 0 1 0-13 0 6.5 6.5 0 0 0 13 0Z"></path></svg><span>Hide ignored</span>
+</label>
+<label class="steamy-checkbox-control tooltipped" aria-label="Requires our browser extension to highlight owned games and DLCs">
+<input type="checkbox" id="js-hide-owned-games" disabled><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-list-unordered" aria-hidden="true"><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg><span>Hide owned</span>
+</label>
+</div>
+<div class="filter-block">
+<label class="steamy-checkbox-control tooltipped tooltipped-blue" aria-label="Blue discount — Product has not been this cheap before">
+<input type="checkbox" id="js-discounts-blue"><span>Show only historical lows</span>
+</label>
+<label class="steamy-checkbox-control tooltipped tooltipped-green" aria-label="Green discount — Product is priced on par with lowest recorded price">
+<input type="checkbox" id="js-discounts-green"><span>Show only matching lows</span>
+</label>
+<label class="steamy-checkbox-control tooltipped tooltipped-purple" aria-label="Purple discount — Product is priced on par with lowest recorded price in last two years">
+<input type="checkbox" id="js-discounts-minor"><span>Show only 2-year lows</span>
+</label>
+</div>
+<div class="filter-block">
+<details class="filter-select" id="js-select-cc" data-default="us">
+<summary class="filter-header"><img src="/static/country/us.svg" class="flag" alt="" width="18" height="18"> Currency</summary>
+<div class="filter-body">
+<div class="filter-select-search">
+<input type="search" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false" placeholder="Search">
+</div>
+<div class="filter-scrollable">
+<label>
+<input type="radio" name="cc" value="us" checked data-selected="true">
+<img src="/static/country/us.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>U.S. Dollar</span>
+</label>
+<label>
+<input type="radio" name="cc" value="eu">
+<img src="/static/country/eu.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Euro</span>
+</label>
+<label>
+<input type="radio" name="cc" value="ar">
+<img src="/static/country/ar.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>LATAM - U.S. Dollar</span>
+</label>
+<label>
+<input type="radio" name="cc" value="au">
+<img src="/static/country/au.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Australian Dollar</span>
+</label>
+<label>
+<input type="radio" name="cc" value="br">
+<img src="/static/country/br.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Brazilian Real</span>
+</label>
+<label>
+<input type="radio" name="cc" value="uk">
+<img src="/static/country/uk.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>British Pound</span>
+</label>
+<label>
+<input type="radio" name="cc" value="ca">
+<img src="/static/country/ca.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Canadian Dollar</span>
+</label>
+<label>
+<input type="radio" name="cc" value="cl">
+<img src="/static/country/cl.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Chilean Peso</span>
+</label>
+<label>
+<input type="radio" name="cc" value="cn">
+<img src="/static/country/cn.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Chinese Yuan</span>
+</label>
+<label>
+<input type="radio" name="cc" value="az">
+<img src="/static/country/cis.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>CIS - U.S. Dollar</span>
+</label>
+<label>
+<input type="radio" name="cc" value="co">
+<img src="/static/country/co.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Colombian Peso</span>
+</label>
+<label>
+<input type="radio" name="cc" value="cr">
+<img src="/static/country/cr.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Costa Rican Colon</span>
+</label>
+<label>
+<input type="radio" name="cc" value="hk">
+<img src="/static/country/hk.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Hong Kong Dollar</span>
+</label>
+<label>
+<input type="radio" name="cc" value="in">
+<img src="/static/country/in.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Indian Rupee</span>
+</label>
+<label>
+<input type="radio" name="cc" value="id">
+<img src="/static/country/id.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Indonesian Rupiah</span>
+</label>
+<label>
+<input type="radio" name="cc" value="il">
+<img src="/static/country/il.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Israeli New Shekel</span>
+</label>
+<label>
+<input type="radio" name="cc" value="jp">
+<img src="/static/country/jp.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Japanese Yen</span>
+</label>
+<label>
+<input type="radio" name="cc" value="kz">
+<img src="/static/country/kz.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Kazakhstani Tenge</span>
+</label>
+<label>
+<input type="radio" name="cc" value="kw">
+<img src="/static/country/kw.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Kuwaiti Dinar</span>
+</label>
+<label>
+<input type="radio" name="cc" value="my">
+<img src="/static/country/my.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Malaysian Ringgit</span>
+</label>
+<label>
+<input type="radio" name="cc" value="mx">
+<img src="/static/country/mx.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Mexican Peso</span>
+</label>
+<label>
+<input type="radio" name="cc" value="nz">
+<img src="/static/country/nz.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>New Zealand Dollar</span>
+</label>
+<label>
+<input type="radio" name="cc" value="no">
+<img src="/static/country/no.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Norwegian Krone</span>
+</label>
+<label>
+<input type="radio" name="cc" value="pe">
+<img src="/static/country/pe.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Peruvian Sol</span>
+</label>
+<label>
+<input type="radio" name="cc" value="ph">
+<img src="/static/country/ph.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Philippine Peso</span>
+</label>
+<label>
+<input type="radio" name="cc" value="pl">
+<img src="/static/country/pl.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Polish Zloty</span>
+</label>
+<label>
+<input type="radio" name="cc" value="qa">
+<img src="/static/country/qa.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Qatari Riyal</span>
+</label>
+<label>
+<input type="radio" name="cc" value="ru">
+<img src="/static/country/ru.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Russian Ruble</span>
+</label>
+<label>
+<input type="radio" name="cc" value="sa">
+<img src="/static/country/sa.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Saudi Riyal</span>
+</label>
+<label>
+<input type="radio" name="cc" value="sg">
+<img src="/static/country/sg.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Singapore Dollar</span>
+</label>
+<label>
+<input type="radio" name="cc" value="za">
+<img src="/static/country/za.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>South African Rand</span>
+</label>
+<label>
+<input type="radio" name="cc" value="pk">
+<img src="/static/country/pk.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>South Asia - USD</span>
+</label>
+<label>
+<input type="radio" name="cc" value="kr">
+<img src="/static/country/kr.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>South Korean Won</span>
+</label>
+<label>
+<input type="radio" name="cc" value="ch">
+<img src="/static/country/ch.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Swiss Franc</span>
+</label>
+<label>
+<input type="radio" name="cc" value="tw">
+<img src="/static/country/tw.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Taiwan Dollar</span>
+</label>
+<label>
+<input type="radio" name="cc" value="th">
+<img src="/static/country/th.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Thai Baht</span>
+</label>
+<label>
+<input type="radio" name="cc" value="tr">
+<img src="/static/country/tr.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>MENA - U.S. Dollar</span>
+</label>
+<label>
+<input type="radio" name="cc" value="ae">
+<img src="/static/country/ae.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>U.A.E. Dirham</span>
+</label>
+<label>
+<input type="radio" name="cc" value="ua">
+<img src="/static/country/ua.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Ukrainian Hryvnia</span>
+</label>
+<label>
+<input type="radio" name="cc" value="uy">
+<img src="/static/country/uy.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Uruguayan Peso</span>
+</label>
+<label>
+<input type="radio" name="cc" value="vn">
+<img src="/static/country/vn.svg" class="flag" alt="" width="18" height="18" loading="lazy">
+<span>Vietnamese Dong</span>
+</label>
+</div>
+</div>
+</details>
+<details class="filter-select" id="js-select-type" data-default="all">
+<summary class="filter-header">
+Filter by type
+</summary>
+<div class="filter-body">
+<div class="filter-scrollable">
+<label>
+<input type="radio" name="displayOnly" value="all" checked>
+<span>All</span>
+</label>
+<label>
+<input type="radio" name="displayOnly" value="Game">
+<span>Games only</span>
+</label>
+<label>
+<input type="radio" name="displayOnly" value="Application">
+<span>Software only</span>
+</label>
+<label>
+<input type="radio" name="displayOnly" value="Video">
+<span>Videos only</span>
+</label>
+<label>
+<input type="radio" name="displayOnly" value="Series">
+<span>Series only</span>
+</label>
+<label>
+<input type="radio" name="displayOnly" value="DLC">
+<span>DLCs only</span>
+</label>
+<label>
+<input type="radio" name="displayOnly" value="Music">
+<span>Music only</span>
+</label>
+<label>
+<input type="radio" name="displayOnly" value="Demo">
+<span>Demos only</span>
+</label>
+</div>
+</div>
+</details>
+<details class="filter-select" id="js-select-os" data-default="0">
+<summary class="filter-header">
+Filter by system
+</summary>
+<div class="filter-body">
+<div class="filter-scrollable">
+<label>
+<input type="radio" name="os" value="0" checked>
+<span>All</span>
+</label>
+<label>
+<input type="radio" name="os" value="steamdeck">
+<svg width="18" height="18" viewBox="0 0 20 20" class="octicon octicon-steamdeck" aria-hidden="true"><path d="M7.777 4.302a5.698 5.698 0 1 1 0 11.396v3.19a8.889 8.889 0 1 0 0-17.777v3.191Zm0 9.587a3.889 3.889 0 1 0 0-7.778 3.889 3.889 0 0 0 0 7.778Z"/></svg>
+<span>Steam Deck</span>
+</label>
+<label>
+<input type="radio" name="os" value="linux">
+<svg width="18" height="18" viewBox="0 0 16 16" class="octicon octicon-linux" aria-hidden="true"><path fill-rule="evenodd" d="M6.813.034C-.65.635 1.329 8.518 1.218 11.158 1.119 12.555.655 14.262 0 16h2.018c.207-.737.36-1.465.425-2.159.122.085.252.167.39.245.227.133.42.31.626.498.48.438 1.025.933 2.09.996.071.004.143.006.213.006 1.077 0 1.813-.471 2.404-.85.284-.181.529-.338.76-.413.654-.205 1.226-.536 1.654-.957.067-.066.128-.134.187-.202.238.873.565 1.855.926 2.835H16c-1.034-1.597-2.1-3.162-2.079-5.159.044-3.948.45-11.409-7.109-10.806zm3.17 10.145a12.94 12.94 0 0 0-.852-.328 2.08 2.08 0 0 0 .213-.894c.018-.819-.395-1.483-.922-1.485-.526 0-.967.662-.985 1.48v.08a4.609 4.609 0 0 0-.956-.324l-.004-.093c-.03-1.491.884-2.725 2.043-2.756C9.68 5.827 10.642 7.01 10.672 8.5a3.192 3.192 0 0 1-.474 1.777 3.108 3.108 0 0 0-.215-.099zm-1.276.488c.253.087.539.185.921.35l.007.002c.357.147.78.415.76.859-.03.68-.92 1.32-1.743 1.578l-.005.002c-.342.11-.647.306-.97.513-.543.347-1.104.706-1.915.706-.054 0-.107 0-.16-.004-.744-.043-1.09-.36-1.53-.76-.232-.212-.472-.43-.781-.612l-.007-.004c-.667-.377-1.081-.845-1.108-1.253-.013-.203.077-.379.269-.522.416-.312.695-.516.88-.651.204-.15.266-.195.312-.238l.106-.103c.382-.372 1.021-.993 2.002-.993.6 0 1.264.23 1.972.686.333.217.623.317.99.444zM5.6 12.046c-.954-.07-1.721-.33-2.058-.559a.455.455 0 0 0-.51.753c.542.367 1.501.64 2.503.712.17.013.356.02.557.02.871 0 1.978-.083 3.162-.634a.455.455 0 0 0-.383-.824c-1.28.596-2.471.59-3.27.532zM4.25 8.97c-.072-.732-.462-1.285-.873-1.234-.41.05-.686.684-.614 1.415.03.32.123.604.25.82-.031.025-.12.09-.224.166l-.286.21c-.312-.408-.524-.993-.562-1.654-.074-1.29.542-2.373 1.377-2.422.834-.048 1.57.957 1.645 2.245.004.07.006.139.006.207A3.25 3.25 0 0 0 4.25 9a.614.614 0 0 0-.001-.029z"/></svg>
+<span>Linux</span>
+</label>
+<label>
+<input type="radio" name="os" value="macos">
+<svg width="18" height="18" viewBox="0 0 412 412" class="octicon octicon-macos" aria-hidden="true"><path fill-rule="evenodd" d="M361.05 137.57c-61 66-57 118 13 165-11 33-29 63-54 89-17 18-38 25-60 14-32-15-62-14-93 1-18 9-35 5-51-8-49-40-95-150-72-219 18-55 75-99 137-69 21 10 40 6 61-2 51-19 87-10 119 29zm-153-45c0-50 26-80 78-92 5 51-28 91-78 92z"/></svg>
+<span>macOS</span>
+</label>
+</div>
+</div>
+</details>
+<details class="filter-select" id="js-select-categories">
+<summary class="filter-header">
+Filter by features
+</summary>
+<div class="filter-body">
+<div class="filter-select-search">
+<input type="search" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false" placeholder="Search">
+</div>
+<div class="filter-match-any-tag">
+All included features must match
+</div>
+<div class="filter-scrollable">
+<label>
+<input type="checkbox" name="category" value="888">
+<img src="/static/img/categories/888.png" width="26" height="16" alt="" loading="lazy">
+<span>Adult Only</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="1">
+<img src="/static/img/categories/1.png" width="26" height="16" alt="" loading="lazy">
+<span>Multi-player</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="2">
+<img src="/static/img/categories/2.png" width="26" height="16" alt="" loading="lazy">
+<span>Single-player</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="8">
+<img src="/static/img/categories/8.png" width="26" height="16" alt="" loading="lazy">
+<span>Valve Anti-Cheat</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="9">
+<img src="/static/img/categories/9.png" width="26" height="16" alt="" loading="lazy">
+<span>Co-op</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="13">
+<img src="/static/img/categories/13.png" width="26" height="16" alt="" loading="lazy">
+<span>Captions available</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="14">
+<img src="/static/img/categories/14.png" width="26" height="16" alt="" loading="lazy">
+<span>Has Commentary</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="15">
+<img src="/static/img/categories/15.png" width="26" height="16" alt="" loading="lazy">
+<span>Stats</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="16">
+<img src="/static/img/categories/16.png" width="26" height="16" alt="" loading="lazy">
+<span>Includes Source SDK</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="17">
+<img src="/static/img/categories/17.png" width="26" height="16" alt="" loading="lazy">
+<span>Includes level editor</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="18">
+<img src="/static/img/categories/18.png" width="26" height="16" alt="" loading="lazy">
+<span>Partial Controller</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="20">
+<img src="/static/img/categories/20.png" width="26" height="16" alt="" loading="lazy">
+<span>MMO</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="22">
+<img src="/static/img/categories/22.png" width="26" height="16" alt="" loading="lazy">
+<span>Steam Achievements</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="23">
+<img src="/static/img/categories/23.png" width="26" height="16" alt="" loading="lazy">
+<span>Steam Cloud</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="24">
+<img src="/static/img/categories/24.png" width="26" height="16" alt="" loading="lazy">
+<span>Split Screen</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="25">
+<img src="/static/img/categories/25.png" width="26" height="16" alt="" loading="lazy">
+<span>Steam Leaderboards</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="27">
+<img src="/static/img/categories/27.png" width="26" height="16" alt="" loading="lazy">
+<span>Cross-Platform Multiplayer</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="28">
+<img src="/static/img/categories/28.png" width="26" height="16" alt="" loading="lazy">
+<span>Full Controller</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="29">
+<img src="/static/img/categories/29.png" width="26" height="16" alt="" loading="lazy">
+<span>Steam Trading Cards</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="30">
+<img src="/static/img/categories/30.png" width="26" height="16" alt="" loading="lazy">
+<span>Steam Workshop</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="32">
+<img src="/static/img/categories/32.png" width="26" height="16" alt="" loading="lazy">
+<span>Steam Turn Notifications</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="33">
+<img src="/static/img/categories/33.png" width="26" height="16" alt="" loading="lazy">
+<span>Steam Controller</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="35">
+<img src="/static/img/categories/35.png" width="26" height="16" alt="" loading="lazy">
+<span>In-App Purchases</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="36">
+<img src="/static/img/categories/36.png" width="26" height="16" alt="" loading="lazy">
+<span>Online PvP</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="37">
+<img src="/static/img/categories/37.png" width="26" height="16" alt="" loading="lazy">
+<span>Split Screen PvP</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="38">
+<img src="/static/img/categories/38.png" width="26" height="16" alt="" loading="lazy">
+<span>Online Co-op</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="39">
+<img src="/static/img/categories/39.png" width="26" height="16" alt="" loading="lazy">
+<span>Split Screen Co-op</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="40">
+<img src="/static/img/categories/40.png" width="26" height="16" alt="" loading="lazy">
+<span>SteamVR Collectibles</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="41">
+<img src="/static/img/categories/41.png" width="26" height="16" alt="" loading="lazy">
+<span>Phone Remote Play</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="42">
+<img src="/static/img/categories/42.png" width="26" height="16" alt="" loading="lazy">
+<span>Tablet Remote Play</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="43">
+<img src="/static/img/categories/43.png" width="26" height="16" alt="" loading="lazy">
+<span>TV Remote Play</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="44">
+<img src="/static/img/categories/44.png" width="26" height="16" alt="" loading="lazy">
+<span>Remote Play Together</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="45">
+<img src="/static/img/categories/45.png" width="26" height="16" alt="" loading="lazy">
+<span>Cloud Gaming</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="46">
+<img src="/static/img/categories/46.png" width="26" height="16" alt="" loading="lazy">
+<span>Cloud Gaming (NVIDIA)</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="47">
+<img src="/static/img/categories/47.png" width="26" height="16" alt="" loading="lazy">
+<span>LAN PvP</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="48">
+<img src="/static/img/categories/48.png" width="26" height="16" alt="" loading="lazy">
+<span>LAN Co-op</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="49">
+<img src="/static/img/categories/49.png" width="26" height="16" alt="" loading="lazy">
+<span>PvP</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="50">
+<img src="/static/img/categories/50.png" width="26" height="16" alt="" loading="lazy">
+<span>Additional High-Quality Audio</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="51">
+<img src="/static/img/categories/51.png" width="26" height="16" alt="" loading="lazy">
+<span>Steam China Workshop</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="52">
+<img src="/static/img/categories/52.png" width="26" height="16" alt="" loading="lazy">
+<span>Tracked Controller</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="53">
+<img src="/static/img/categories/53.png" width="26" height="16" alt="" loading="lazy">
+<span>VR Supported</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="54">
+<img src="/static/img/categories/54.png" width="26" height="16" alt="" loading="lazy">
+<span>VR Only</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="55">
+<img src="/static/img/categories/55.png" width="26" height="16" alt="" loading="lazy">
+<span>DualShock (USB)</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="56">
+<img src="/static/img/categories/56.png" width="26" height="16" alt="" loading="lazy">
+<span>DualShock</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="57">
+<img src="/static/img/categories/57.png" width="26" height="16" alt="" loading="lazy">
+<span>DualSense (USB)</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="58">
+<img src="/static/img/categories/58.png" width="26" height="16" alt="" loading="lazy">
+<span>DualSense</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="59">
+<img src="/static/img/categories/59.png" width="26" height="16" alt="" loading="lazy">
+<span>Steam Input API</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="60">
+<img src="/static/img/categories/60.png" width="26" height="16" alt="" loading="lazy">
+<span>Gamepad Preferred</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="61">
+<img src="/static/img/categories/61.png" width="26" height="16" alt="" loading="lazy">
+<span>HDR Supported</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="62">
+<img src="/static/img/categories/62.png" width="26" height="16" alt="" loading="lazy">
+<span>Family Sharing</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="63">
+<img src="/static/img/categories/63.png" width="26" height="16" alt="" loading="lazy">
+<span>Steam Timeline</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="64">
+<img src="/static/img/categories/64.png" width="26" height="16" alt="" loading="lazy">
+<span>Adjustable Text Size</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="65">
+<img src="/static/img/categories/65.png" width="26" height="16" alt="" loading="lazy">
+<span>Subtitle Options</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="66">
+<img src="/static/img/categories/66.png" width="26" height="16" alt="" loading="lazy">
+<span>Color Alternatives</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="67">
+<img src="/static/img/categories/67.png" width="26" height="16" alt="" loading="lazy">
+<span>Camera Comfort</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="68">
+<img src="/static/img/categories/68.png" width="26" height="16" alt="" loading="lazy">
+<span>Custom Volume Controls</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="69">
+<img src="/static/img/categories/69.png" width="26" height="16" alt="" loading="lazy">
+<span>Stereo Sound</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="70">
+<img src="/static/img/categories/70.png" width="26" height="16" alt="" loading="lazy">
+<span>Surround Sound</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="71">
+<img src="/static/img/categories/71.png" width="26" height="16" alt="" loading="lazy">
+<span>Narrated Game Menus</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="72">
+<img src="/static/img/categories/72.png" width="26" height="16" alt="" loading="lazy">
+<span>Chat Speech-to-text</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="73">
+<img src="/static/img/categories/73.png" width="26" height="16" alt="" loading="lazy">
+<span>Chat Text-to-speech</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="74">
+<img src="/static/img/categories/74.png" width="26" height="16" alt="" loading="lazy">
+<span>Playable without Timed Input</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="75">
+<img src="/static/img/categories/75.png" width="26" height="16" alt="" loading="lazy">
+<span>Keyboard Only Option</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="76">
+<img src="/static/img/categories/76.png" width="26" height="16" alt="" loading="lazy">
+<span>Mouse Only Option</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="77">
+<img src="/static/img/categories/77.png" width="26" height="16" alt="" loading="lazy">
+<span>Touch Only Option</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="78">
+<img src="/static/img/categories/78.png" width="26" height="16" alt="" loading="lazy">
+<span>Adjustable Difficulty</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="79">
+<img src="/static/img/categories/79.png" width="26" height="16" alt="" loading="lazy">
+<span>Save Anytime</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="666">
+<img src="/static/img/categories/666.png" width="26" height="16" alt="" loading="lazy">
+<span>Early Access</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="776">
+<img src="/static/img/categories/776.png" width="26" height="16" alt="" loading="lazy">
+<span>Profile Features Limited</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="category" value="777">
+<img src="/static/img/categories/777.png" width="26" height="16" alt="" loading="lazy">
+<span>Steam is learning</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+</div>
+</div>
+</details>
+<details class="filter-select" id="js-select-tags">
+<summary class="filter-header">
+Filter by user tags
+</summary>
+<div class="filter-body">
+<div class="filter-select-search">
+<input type="search" autocomplete="off" autocorrect="off" autocapitilize="off" spellcheck="false" placeholder="Search">
+</div>
+<label class="filter-match-any-tag">
+<input type="checkbox" id="js-match-all-tags" checked>
+<span>Match all included tags</span>
+</label>
+<div class="filter-scrollable">
+<label>
+<input type="checkbox" name="tagid" value="1003823">
+<span>🔒 Profile Features Limited</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="492">
+<span>🌱 Indie</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4182">
+<span>👤 Singleplayer</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="19">
+<span>💥 Action</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="597">
+<span>😌 Casual</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="21">
+<span>🗺️ Adventure</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3871">
+<span>🏽 2D</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="599">
+<span>🖥️ Simulation</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="122">
+<span>🎲 RPG</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="9">
+<span>💡 Strategy</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4191">
+<span>🧊 3D</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4166">
+<span>🌫 Atmospheric</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4305">
+<span>🎨 Colorful</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3834">
+<span>🗺 Exploration</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1742">
+<span>📚 Story Rich</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1684">
+<span>🎭 Fantasy</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1664">
+<span>🧩 Puzzle</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3964">
+<span>👾 Pixel Graphics</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4726">
+<span>🧸 Cute</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3839">
+<span>🙌 First-Person</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3859">
+<span>🕹️ Multiplayer</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4106">
+<span>🌄 Action-Adventure</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="113">
+<span>🆓 Free to Play</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="21491">
+<span>💿 Demo Available</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1654">
+<span>🧘 Relaxing</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1773">
+<span>🕹 Arcade</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3993">
+<span>⚔️ Combat</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4085">
+<span>🌸 Anime</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4136">
+<span>😃 Funny</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1667">
+<span>😱 Horror</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="493">
+<span>🐤 Early Access</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4252">
+<span>🎨 Stylized</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3942">
+<span>🚀 Sci-fi</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1774">
+<span>🔫 Shooter</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1697">
+<span>👤 Third Person</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5350">
+<span>👪 Family Friendly</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7481">
+<span>🎮 Controller</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4791">
+<span>🗺️ Top-Down</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4004">
+<span>👾 Retro</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7208">
+<span>👩 Female Protagonist</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4175">
+<span>🌱 Realistic</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1625">
+<span>🏗️ Platformer</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6426">
+<span>🧞 Choices Matter</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3799">
+<span>📚 Visual Novel</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="12095">
+<span>🔞 Sexual Content</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6730">
+<span>🌲 PvE</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6650">
+<span>🍑 Nudity</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7250">
+<span>📏 Linear</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1775">
+<span>🥊 PvP</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5379">
+<span>📺 2D Platformer</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4342">
+<span>😨 Dark</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5716">
+<span>🤫 Mystery</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4195">
+<span>🐰 Cartoony</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1695">
+<span>🌍 Open World</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6971">
+<span>🔚 Multiple Endings</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1662">
+<span>🌲 Survival</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4667">
+<span>👊 Violent</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1719">
+<span>🤡 Comedy</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1721">
+<span>🕴 Psychological Horror</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3968">
+<span>🔋 Physics</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1368160">
+<span>✨ AI Content Disclosed</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7948">
+<span>🎶 Soundtrack</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1685">
+<span>🤝 Co-op</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4747">
+<span>🦹 Character Customization</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1716">
+<span>👻 Roguelike</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3959">
+<span>👻 Roguelite</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1663">
+<span>🔫 FPS</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="65443">
+<span>🔞 Adult Content</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3810">
+<span>🧱 Sandbox</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6815">
+<span>🎨 Hand-drawn</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4231">
+<span>💥 Action RPG</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4172">
+<span>🏰 Medieval</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1698">
+<span>🔎 Point & Click</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4094">
+<span>☯ Minimalist</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4057">
+<span>🪄 Magic</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4345">
+<span>😖 Gore</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3843">
+<span>👥 Online Co-Op</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="12472">
+<span>💼 Management</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3916">
+<span>🕹️ Old School</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="701">
+<span>🏅 Sports</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="9204">
+<span>🌎 Immersive Sim</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4026">
+<span>😓 Difficult</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1643">
+<span>🏠 Building</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1708">
+<span>🤔 Tactical</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5395">
+<span>🦘 3D Platformer</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5984">
+<span>🎭 Drama</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="21978">
+<span>🥽 VR</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="42804">
+<span>👻 Action Roguelike</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1755">
+<span>🌠 Space</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="699">
+<span>🏁 Racing</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="11014">
+<span>📚 Interactive Fiction</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4295">
+<span>🌆 Futuristic</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4486">
+<span>🧚 Choose Your Own Adventure</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4947">
+<span>💘 Romance</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1702">
+<span>🔧 Crafting</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4562">
+<span>🐰 Cartoon</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6129">
+<span>🧩 Logic</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4604">
+<span>🧝 Dark Fantasy</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5608">
+<span>💔 Emotional</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1741">
+<span>🎲 Turn-Based Strategy</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3798">
+<span>📺 Side Scroller</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="8945">
+<span>📊 Resource Management</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="14139">
+<span>🎲 Turn-Based Tactics</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5125">
+<span>🔀 Procedural Generation</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4255">
+<span>🕹 Shoot 'Em Up</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4325">
+<span>🛡️ Turn-Based Combat</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5537">
+<span>🧩 Puzzle Platformer</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1738">
+<span>🔍 Hidden Object</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3978">
+<span>🎒 Survival Horror</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="128">
+<span>🫶 Massively Multiplayer</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="30358">
+<span>🌿 Nature</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1646">
+<span>🛡️ Hack and Slash</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4885">
+<span>💥 Bullet Hell</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="17389">
+<span>🃏 Tabletop</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5611">
+<span>🙈 Mature</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="9551">
+<span>💘 Dating Sim</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5900">
+<span>🚶 Walking Simulator</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4434">
+<span>🌸 JRPG</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6691">
+<span>📼 1990's</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1720">
+<span>🏰 Dungeon Crawler</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1036">
+<span>🏫 Education</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1710">
+<span>🫠 Surreal</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7368">
+<span>📺 Local Multiplayer</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7332">
+<span>🏠 Base Building</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7743">
+<span>🎸 1980s</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="10695">
+<span>🤝 Party-Based RPG</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3835">
+<span>☢️ Post-apocalyptic</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="24904">
+<span>🫣 NSFW</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="9130">
+<span>🥵 Hentai</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1666">
+<span>🃏 Card Game</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="379975">
+<span>👆 Clicker</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="10235">
+<span>🧫 Life Sim</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4145">
+<span>🍿 Cinematic</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5154">
+<span>🏅 Score Attack</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="31275">
+<span>📝 Text-Based</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1678">
+<span>⚔️ War</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1659">
+<span>🧟 Zombies</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3987">
+<span>📜 Historical</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1756">
+<span>🎶 Great Soundtrack</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4975">
+<span>🌓 2.5D</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4637">
+<span>🌟 Top-Down Shooter</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="84">
+<span>🎨 Design & Illustration</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1677">
+<span>🎲 Turn-Based</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5851">
+<span>🌆 Isometric</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1687">
+<span>🥷 Stealth</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3854">
+<span>📖 Lore-Rich</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5094">
+<span>📚 Narration</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="8369">
+<span>🔍 Investigation</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3814">
+<span>🔫 Third-Person Shooter</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4711">
+<span>🔄 Replay Value</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="15172">
+<span>🗣️ Conversation</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="44868">
+<span>🏳️‍🌈 LGBTQ+</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4695">
+<span>🏦 Economy</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5186">
+<span>🫂 Psychological</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3841">
+<span>👥 Local Co-Op</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4064">
+<span>🔪 Thriller</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4168">
+<span>🪖 Military</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="16689">
+<span>🕒 Time Management</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="17305">
+<span>🧠 Strategy RPG</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5613">
+<span>🕵️ Detective</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3877">
+<span>🕹 Precision Platformer</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="87">
+<span>🔧 Utilities</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5923">
+<span>🗿 Dark Humor</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5652">
+<span>📦 Collectathon</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="32322">
+<span>🎴 Deckbuilding</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="9541">
+<span>👿 Demons</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="615955">
+<span>🕒 Idler</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4115">
+<span>🔋 Cyberpunk</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4400">
+<span>🤯 Abstract</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="10808">
+<span>🔮 Supernatural</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1770">
+<span>🎲 Board Game</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1673">
+<span>👽 Aliens</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1644">
+<span>🚗 Driving</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3813">
+<span>▶️ Real Time Tactics</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1676">
+<span>🌐 RTS</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="12057">
+<span>🎓 Tutorial</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6869">
+<span>〰️ Nonlinear</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5752">
+<span>🤖 Robots</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1645">
+<span>🏰 Tower Defense</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="8013">
+<span>💾 Software</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5547">
+<span>🌟 Arena Shooter</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5711">
+<span>👥 Team-Based</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1759">
+<span>☠️ Perma Death</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4328">
+<span>🏙️ City Builder</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6276">
+<span>📦 Inventory Management</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5673">
+<span>💻 Modern</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1751">
+<span>💬 Comic Book</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="21725">
+<span>🛡️ Tactical RPG</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="791774">
+<span>🃏 Card Battler</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5030">
+<span>⛓ Dystopian </span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4236">
+<span>📦 Loot</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1714">
+<span>🦄 Psychedelic</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4684">
+<span>🔵 Wargame</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7926">
+<span>🤖 Artificial Intelligence</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1038">
+<span>🌐 Web Publishing</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="17894">
+<span>🐱 Cats</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4158">
+<span>🥊 Beat 'em up</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1628">
+<span>💨 Metroidvania</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="29482">
+<span>💥 Souls-like</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="8666">
+<span>🏃 Runner</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="916648">
+<span>🦎 Creature Collector</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4234">
+<span>🤏 Short</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="15045">
+<span>✈️ Flight</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1734">
+<span>⚡ Fast-Paced</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4598">
+<span>🕰️ Alternate History</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4840">
+<span>4️⃣ 4 Player Local</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4036">
+<span>🧗 Parkour</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="10397">
+<span>🤣 Memes</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1621">
+<span>🎶 Music</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="16094">
+<span>👹 Mythology</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1100687">
+<span>🚗 Automobile Sim</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6378">
+<span>🚨 Crime</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4474">
+<span>💻 CRPG</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="8122">
+<span>📖 Level Editor</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7569">
+<span>♟️ Grid-Based Movement</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="13906">
+<span>🛠️ Game Development</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4736">
+<span>🤼 2D Fighter</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="97376">
+<span>🛏️ Cozy</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4845">
+<span>🤑 Capitalism</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="255534">
+<span>🤖 Automation</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1752">
+<span>🎶 Rhythm</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5363">
+<span>💥 Destruction</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="87918">
+<span>🌽 Farming Sim</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1669">
+<span>🛠️ Moddable</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="15277">
+<span>🧙‍♂ Philosophical</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4758">
+<span>🕹️ Twin Stick Shooter</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6506">
+<span>🤼 3D Fighter</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5577">
+<span>🧰 RPGMaker</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3878">
+<span>🥇 Competitive</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3920">
+<span>🍲 Cooking</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="19995">
+<span>🧛🏻 Dark Comedy</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="24003">
+<span>📚 Word Game</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1084988">
+<span>🧼 Auto Battler</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6052">
+<span>🕵️ Noir</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1743">
+<span>🤼 Fighting</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7432">
+<span>🐙 Lovecraftian</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4155">
+<span>🏋️ Class-Based</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5055">
+<span>💦 eSports</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="220585">
+<span>🛖 Colony Sim</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4608">
+<span>🤺 Swordplay</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4364">
+<span>🛡️ Grand Strategy</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="13782">
+<span>⚗️ Experimental</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="16598">
+<span>🚀 Space Sim</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="11104">
+<span>🏎️ Vehicular Combat</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="13190">
+<span>🌎 America</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5794">
+<span>🔬 Science</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5765">
+<span>🔫 Gun Customization</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="872">
+<span>📏 Animation & Modeling</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4202">
+<span>💼 Trading</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="198631">
+<span>🏰 Mystery Dungeon</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1665">
+<span>3️⃣ Match 3</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1754">
+<span>🏪 MMORPG</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4700">
+<span>🍿 Movie</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="176981">
+<span>🌪️ Battle Royale</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="29363">
+<span>🤓 3D Vision</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4046">
+<span>🐲 Dragons</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4878">
+<span>🥸 Parody </span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="10816">
+<span>📺 Split Screen</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="353880">
+<span>🎒 Looter Shooter</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4835">
+<span>🚀 6DOF</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="22602">
+<span>🌾 Agriculture</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5372">
+<span>👁️ Conspiracy</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="620519">
+<span>🔫 Hero Shooter</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4777">
+<span>🤸 Spectacle fighter</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1693">
+<span>🕒 Classic</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4150">
+<span>🪂 World War II</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3952">
+<span>🦇 Gothic</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="552282">
+<span>🤗 Wholesome</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="13070">
+<span>♠️ Solitaire</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4102">
+<span>🏎️ Combat Racing</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5796">
+<span>⏸️ Bullet Time</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6915">
+<span>🥋 Martial Arts</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="21006">
+<span>🕳️ Underground</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1651">
+<span>🎭 Satire</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4821">
+<span>🤖 Mechs</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4559">
+<span>⚡ Quick-Time Events</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1091588">
+<span>🎴 Roguelike Deckbuilder</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1723">
+<span>💥 Action RTS</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1732">
+<span>🧊 Voxel</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6625">
+<span>⏳ Time Manipulation</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5981">
+<span>⛏️ Mining</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="10383">
+<span>🚌 Transportation</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1638">
+<span>🐶 Dog</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1681">
+<span>🏴‍☠ Pirates</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="15564">
+<span>🎣 Fishing</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7702">
+<span>📚 Narrative</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4508">
+<span>🤝 Co-op Campaign</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1100689">
+<span>🌎 Open World Survival Craft</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5300">
+<span>🌌 God Game</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1027">
+<span>🎶 Audio Production</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="18594">
+<span>📺 FMV</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="9592">
+<span>📚 Dynamic Narration</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="9271">
+<span>🤝 Trading Card Game</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1777">
+<span>🧷 Steampunk</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1730">
+<span>📦 Sokoban</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="10679">
+<span>⏳ Time Travel</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="784">
+<span>📽 Video Production</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4018">
+<span>🧛 Vampire</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="9157">
+<span>🌊 Underwater</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1616">
+<span>🚂 Trains</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7178">
+<span>🤝 Party Game</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4853">
+<span>🗳️ Political</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1717">
+<span>🛑 Hex Grid</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1023537">
+<span>👴 Boomer Shooter</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="13276">
+<span>🚜 Tanks</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5411">
+<span>🦚 Beautiful</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1670">
+<span>🗺️ 4X</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1688">
+<span>🥷 Ninja</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3934">
+<span>🌎 Immersive</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="9564">
+<span>🏹 Hunting</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="16250">
+<span>🎰 Gambling</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="31579">
+<span>💘 Otome</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5228">
+<span>🩸 Blood</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3955">
+<span>⚡ Character Action Game</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="26921">
+<span>🏛️ Political Sim</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1674">
+<span>⌨️ Typing</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1718">
+<span>💢 MOBA</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="17770">
+<span>🕒 Asynchronous Multiplayer</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4754">
+<span>🗳️ Politics</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5502">
+<span>🔌 Hacking</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1647">
+<span>🤠 Western</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="11123">
+<span>🖱️ Mouse only</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="180368">
+<span>🙏 Faith</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5160">
+<span>🦖 Dinosaurs</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1445">
+<span>📚 Software Training</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7108">
+<span>🥳 Party</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5432">
+<span>💻 Programming</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1671">
+<span>🦸 Superhero</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="8093">
+<span>🐜 Minigames</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6310">
+<span>🤝 Diplomacy</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4376">
+<span>🗡️ Assassin</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="769306">
+<span>🗝️ Escape Room</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6910">
+<span>🚢 Naval</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4242">
+<span>🔢 Episodic</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="9803">
+<span>❄️ Snow</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4161">
+<span>▶️ Real-Time</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="14153">
+<span>🐲 Dungeons & Dragons</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="10437">
+<span>🤓 Trivia</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1680">
+<span>💸 Heist</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="809">
+<span>📷 Photo Editing</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="13577">
+<span>⛵ Sailing</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5179">
+<span>☢️ Cold War</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4994">
+<span>🚢 Naval Combat</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="13382">
+<span>🎯 Archery</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5708">
+<span>🔄 Remake</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="56690">
+<span>🛤️ On-Rails Shooter</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="454187">
+<span>👻 Traditional Roguelike</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5390">
+<span>⏰ Time Attack</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="51306">
+<span>🌍 Foreign</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6041">
+<span>🐎 Horses</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1254546">
+<span>⚽ Football (Soccer)</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7107">
+<span>⏯ Real-Time with Pause</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="8253">
+<span>🤖 Music-Based Procedural Generation</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="35079">
+<span>🔧 Job Simulator</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7622">
+<span>🛻 Offroad</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="71389">
+<span>🔤 Spelling</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4137">
+<span>🧬 Transhumanism</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="14720">
+<span>🕯️ Nostalgia</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4190">
+<span>🫦 Addictive</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5230">
+<span>2️⃣ Sequel</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4520">
+<span>🌾 Farming</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="91114">
+<span>🛍️ Shop Keeper</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7423">
+<span>🏹 Sniper</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="12190">
+<span>🥊 Boxing</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7478">
+<span>👁️ Illuminati</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="92092">
+<span>✈️ Jet</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="17015">
+<span>🐺 Werewolves</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1100686">
+<span>🦠 Outbreak Sim</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4184">
+<span>♟️ Chess</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6702">
+<span>🔴 Mars</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="922563">
+<span>👻 Roguevania</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="198913">
+<span>🏍️ Motorbike</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7038">
+<span>🏌️ Golf</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="11333">
+<span>😈 Villain Protagonist</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="776177">
+<span>🌏 360 Video</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="25085">
+<span>👆 Touch-Friendly</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1100688">
+<span>🩺 Medical Sim</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1746">
+<span>🏀 Basketball</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5382">
+<span>🎖️ World War I</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="745697">
+<span>🠊 Social Deduction</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7782">
+<span>📼 Cult Classic</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="123332">
+<span>🚲 Bikes</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="19780">
+<span>🤿 Submarine</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6948">
+<span>🏛️ Rome</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1649">
+<span>🧰 GameMaker</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6621">
+<span>🧲 Pinball</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="9994">
+<span>👴 Experience</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5727">
+<span>⚾ Baseball</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1733">
+<span>😡 Unforgiving</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="61357">
+<span>🎶 Electronic Music</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="4291">
+<span>🛰 Spaceships</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7918">
+<span>🧔🏻 Dwarf</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1736">
+<span>🧱 LEGO</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="29855">
+<span>🍃 Ambient</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5153">
+<span>💰 Kickstarter</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1753">
+<span>🛹 Skateboarding</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5348">
+<span>🔧 Mod</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="150626">
+<span>🎮 Gaming</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="22955">
+<span>⛳ Mini Golf</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="856791">
+<span>🥽 Asymmetric VR</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="47827">
+<span>🤼 Wrestling</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="42089">
+<span>🔪 Jump Scare</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1199779">
+<span>🔫 Extraction Shooter</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="11095">
+<span>💥 Boss Rush</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="15339">
+<span>📺 Documentary</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1254552">
+<span>🏈 Football (American)</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="17927">
+<span>🏊 Pool</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7556">
+<span>🎲 Dice</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="8461">
+<span>✍️ Well-Written</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="8075">
+<span>👣 TrackIR</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="15954">
+<span>🔇 Silent Protagonist</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="189941">
+<span>🎻 Instrumental Music</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="96359">
+<span>🛹 Skating</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3965">
+<span>💎 Epic</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5914">
+<span>🎾 Tennis</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="19568">
+<span>🚴 Cycling</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5310">
+<span>⚒️ Games Workshop</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="337964">
+<span>🤘 Rock Music</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="15868">
+<span>🚵🏿 Motocross</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7113">
+<span>🤑 Crowdfunded</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="14906">
+<span>😬 Intentionally Awkward Controls</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="12286">
+<span>🔨 Warhammer 40K</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="11634">
+<span>🛶 Vikings</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="324176">
+<span>🏒 Hockey</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7328">
+<span>🎳 Bowling</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="3796">
+<span>📔 Based On A Novel</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="17337">
+<span>🐹 Lemmings</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="6214">
+<span>🐦 Birds</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="117648">
+<span>👾 8-bit Music</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="33572">
+<span>🀄 Mahjong</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="7309">
+<span>⛷ Skiing</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="28444">
+<span>🏂 Snowboarding</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="27758">
+<span>🎙️ Voice Control</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="252854">
+<span>🚲 BMX</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="323922">
+<span>🔱 Musou</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="129761">
+<span>🛻 ATV</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="143739">
+<span>🔋 Electronic</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="30927">
+<span>🦊 Fox</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="102530">
+<span>🧝 Elf</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="603297">
+<span>💻 Hardware</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="1220528">
+<span>🌱 Hobby Sim</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5407">
+<span>📈 Benchmark</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="42329">
+<span>💻 Coding</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="233824">
+<span>🍿 Feature Film</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="847164">
+<span>🏐 Volleyball</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="158638">
+<span>🏏 Cricket</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="49213">
+<span>🏉 Rugby</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="348922">
+<span>🚂 Steam Machine</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="5941">
+<span>⏪ Reboot</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+<label>
+<input type="checkbox" name="tagid" value="363767">
+<span>🎱 Snooker</span>
+<span class="filter-exclude-checkbox"></span>
+</label>
+</div>
+</div>
+</details>
+</div>
+<div class="filter-block">
+<div class="fancy-price tooltipped" aria-label="Filter by minimum and maximum price in selected currency">
+Price
+<input class="fancy-price-input" type="text" inputmode="numeric" name="min_price" maxlength="8" pattern="[0-9]+(\.[0-9]+)?" title="Only numbers (with or without fractions)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="0" aria-label="Minimum price">
+to
+<input class="fancy-price-input" type="text" inputmode="numeric" name="max_price" maxlength="8" pattern="[0-9]+(\.[0-9]+)?" title="Only numbers (with or without fractions)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Maximum price" placeholder="∞">
+</div>
+<div class="fancy-price tooltipped" aria-label="Filter by minimum and maximum amount of user reviews on Steam">
+Reviews
+<input class="fancy-reviews-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" name="min_reviews" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="0" aria-label="Minimum reviews">
+to
+<input class="fancy-reviews-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" name="max_reviews" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Maximum reviews" placeholder="∞">
+</div>
+<div class="fancy-price tooltipped" aria-label="Filter by minimum and maximum amount of Steam hub followers">
+Follows
+<input class="fancy-reviews-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" name="min_followers" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="0" aria-label="Minimum followers">
+to
+<input class="fancy-reviews-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" name="max_followers" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Maximum followers" placeholder="∞">
+</div>
+<div class="fancy-range">
+<label for="js-input-rating">Rating: ≥<span id="js-value-rating">0</span>%</label>
+<input type="range" class="fancy-range-input" id="js-input-rating" name="min_rating" min="0" max="95" step="5" value="0">
+</div>
+<div class="fancy-range">
+<label for="js-input-discount">Discount: <span id="js-value-discount">&gt;0</span>%</label>
+<input type="range" class="fancy-range-input" id="js-input-discount" name="min_discount" min="0" max="95" step="5" value="0">
+</div>
+<div class="fancy-date-container">
+<div class="fancy-date-title">Release date</div>
+<label for="js-input-release-min">From</label>
+<input type="date" name="min_release" value="" min="1970-01-01" max="2100-12-31" class="fancy-date-input" id="js-input-release-min">
+<label for="js-input-release-max">To</label>
+<input type="date" name="max_release" value="" min="1970-01-01" max="2100-12-31" class="fancy-date-input" id="js-input-release-max">
+<label class="steamy-checkbox-control">
+<input type="checkbox" name="upcoming_only" value="1" id="js-upcoming-only"><span>Upcoming only</span>
+</label>
+</div>
+</div>
+</div>
+<div class="filter-submit-wrap">
+<button id="js-filter-submit" class="btn btn-primary" type="submit" disabled>Apply new filters</button>
+</div>
+</form>
+<a href="/extension/" class="protip-banner js-extension-tip">
+<div class="protip-header">Install our extension <svg width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-arrow-right" aria-hidden="true"><path d="M8.22 2.97a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l2.97-2.97H3.75a.75.75 0 0 1 0-1.5h7.44L8.22 4.03a.75.75 0 0 1 0-1.06Z"></path></svg></div>
+<div class="protip-line"><svg width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-star" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></svg><span>Highlight your owned, wished games, and DLCs.</span></div>
+<div class="protip-line"><svg width="20" height="20" viewBox="0 0 16 16" class="octicon octicon-tag" aria-hidden="true"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"></path></svg><span>Display lowest price and online stats on store pages.</span></div>
+</a>
+<script nonce="6cl2SdKs4zZ5NxmVlJALsLotg9w=">if (window.SteamDB.SessionHasExtension) document.querySelector(".js-extension-tip").hidden=true</script>
+</details>
+<div class="filter-extra-links">
+<a class="btn btn-outline" href="/stats/releases/?tech=Engine.UbisoftAnvil">View release stats</a>
+<a class="btn btn-outline" href="/instantsearch/?refinementList%5Btechnologies%5D%5B0%5D=Engine.UbisoftAnvil" rel="nofollow">Filter in instant search</a>
+</div>
+</div>
+<div class="span12 table-container">
+<div class="panel d-flex" style="gap:10px;margin-top:15px">
+<div style="color:var(--link-color)">
+<svg width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-question" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>
+</div>
+<div>
+<p><a href="https://en.wikipedia.org/wiki/Ubisoft_Anvil" rel="ugc"><strong>Ubisoft Anvil</strong></a>, previously known as AnvilNext, is a game engine developed by Ubisoft and first used in Assassin's Creed released in 2007.</p><small class="muted"><a class="tech-edit" href="https://github.com/SteamDatabase/FileDetectionRuleSets/blob/main/descriptions/Engine.UbisoftAnvil.md">— Edit on GitHub</a></small>
+</div>
+</div>
+<div class="current-sale-filters-contain" hidden role="list">
+<span class="current-sale-filters-title">Current filters:</span>
+<div class="current-sale-filters">
+</div>
+<div id="js-remove-svg" hidden><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-x-circle-fill" aria-hidden="true"><path d="M2.343 13.657A8 8 0 1 1 13.658 2.343 8 8 0 0 1 2.343 13.657ZM6.03 4.97a.751.751 0 0 0-1.042.018.751.751 0 0 0-.018 1.042L6.94 8 4.97 9.97a.749.749 0 0 0 .326 1.275.749.749 0 0 0 .734-.215L8 9.06l1.97 1.97a.749.749 0 0 0 1.275-.326.749.749 0 0 0-.215-.734L9.06 8l1.97-1.97a.749.749 0 0 0-.326-1.275.749.749 0 0 0-.734.215L8 6.94Z"></path></svg></div>
+</div>
+<div class="hover-swipe-hint"><svg width="24" height="24" viewBox="0 0 115 136" class="octicon" aria-hidden="true"><path fill="currentColor" d="m110 85-4-2c-6-3-12-3-18-2h-1a409 409 0 0 1 4-8l2-3 15-35 1-9c0-4-2-6-4-8-3-1-6 0-9 1l-4 4-1 1a113 113 0 0 0-14 24 572 572 0 0 1-4 7c-5-7-8-7-16-4-1-4-4-6-9-7-4-1-7 1-11 4v-1h-1c-2-4-6-6-9-6-4 0-8 1-10 5-3 2-5 5-6 9-4 8-7 17-9 26-1 5-2 11-1 17 0 10 4 18 12 25a44 44 0 0 0 35 12c5 0 12-1 17-6l8-5 13-11 18-9 6-3a10 10 0 0 0 0-16ZM7 94v-4l1-9c2-9 5-17 8-23 1-4 4-7 7-9 1-2 3-3 5-2l3 4v4l1 1c0 2 0 3 2 4l4-2a94 94 0 0 0 3-5 7 7 0 0 1 4-4l5 1 2 4v5l-1 1v2a3 3 0 0 0 6 1v-2a15 15 0 0 1 5-6 3 3 0 0 1 3-1 3 3 0 0 1 2 2 26 26 0 0 1 1 7v3l2 3 3-1 1-2h1l4-9 9-19 7-10 4-4 3-1 2 3-1 4a567 567 0 0 0-7 18 1729 1729 0 0 1-19 42l2 3c1 1 3 1 4-1h1v-1c2-3 7-5 11-5 5 0 9 1 11 3 2 1 2 2 2 3l-2 3-3 1c-8 2-15 6-22 12a449 449 0 0 1-22 17c-3 2-7 2-10 2-15 1-27-4-36-15-4-5-6-11-6-18ZM34 30h2l4-3a48 48 0 0 1 31-12l-1 1-3 2-2 3a2 2 0 0 0 0 2h6l10-6 2-4-3-4-10-7c-1-1-3-2-4-1v4l3 3a233 233 0 0 1 0 1c-12 0-23 4-33 13l-4 3v4a3 3 0 0 0 2 1Z"/></svg> Swipe right on a game to view details.</div>
+<div id="js-filter-loader">
+<span class="loader"></span>
+<span>Downloading more RAM…</span>
+</div>
+<div id="js-app" class="app-loading">
+<table class="table-sales table-hover table-sortable table-type-special">
+<thead>
+<tr class="text-left">
+<th data-name="id" style="width:30px" data-searchable="false" class="id-no-text">#</th>
+<th data-name="logo" style="width:107px" data-orderable="false" data-searchable="false"></th>
+<th data-name="name" style="padding-left:12px">Name</th>
+<th data-name="discount" style="width:60px"><span class="tooltipped tooltipped-n" aria-label="Discount percentage">%</span></th>
+<th data-name="price" style="width:110px"><img src="/static/country/us.svg" class="flag" alt="" width="18" height="18"> Price</th>
+<th data-name="rating" style="width:100px"><span class="tooltipped tooltipped-n" aria-label="SteamDB Rating"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-star" aria-hidden="true"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></svg> Rating</span></th>
+<th data-name="release" style="width:100px"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-calendar" aria-hidden="true"><path d="M4.75 0a.75.75 0 0 1 .75.75V2h5V.75a.75.75 0 0 1 1.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 0 1 4.75 0ZM2.5 7.5v6.75c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V7.5Zm10.75-4H2.75a.25.25 0 0 0-.25.25V6h11V3.75a.25.25 0 0 0-.25-.25Z"></path></svg> Release</th>
+<th data-name="followers" style="width:100px"><span class="tooltipped tooltipped-n" aria-label="Followers of this game"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-people" aria-hidden="true"><path d="M2 5.5a3.5 3.5 0 1 1 5.898 2.549 5.508 5.508 0 0 1 3.034 4.084.75.75 0 1 1-1.482.235 4 4 0 0 0-7.9 0 .75.75 0 0 1-1.482-.236A5.507 5.507 0 0 1 3.102 8.05 3.493 3.493 0 0 1 2 5.5ZM11 4a3.001 3.001 0 0 1 2.22 5.018 5.01 5.01 0 0 1 2.56 3.012.749.749 0 0 1-.885.954.752.752 0 0 1-.549-.514 3.507 3.507 0 0 0-2.522-2.372.75.75 0 0 1-.574-.73v-.352a.75.75 0 0 1 .416-.672A1.5 1.5 0 0 0 11 5.5.75.75 0 0 1 11 4Zm-5.5-.5a2 2 0 1 0-.001 3.999A2 2 0 0 0 5.5 3.5Z"></path></svg> Follows</span></th>
+<th data-name="online" style="width:100px"><span class="tooltipped tooltipped-n" aria-label="Concurrent players online now"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-pulse" aria-hidden="true"><path d="M6 2c.306 0 .582.187.696.471L10 10.731l1.304-3.26A.751.751 0 0 1 12 7h3.25a.75.75 0 0 1 0 1.5h-2.742l-1.812 4.528a.751.751 0 0 1-1.392 0L6 4.77 4.696 8.03A.75.75 0 0 1 4 8.5H.75a.75.75 0 0 1 0-1.5h2.742l1.812-4.529A.751.751 0 0 1 6 2Z"></path></svg> Online</span></th>
+<th data-name="peak" style="width:100px"><span class="tooltipped tooltipped-n" aria-label="Concurrent players peak record"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-graph" aria-hidden="true"><path d="M1.5 1.75V13.5h13.75a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75V1.75a.75.75 0 0 1 1.5 0Zm14.28 2.53-5.25 5.25a.75.75 0 0 1-1.06 0L7 7.06 4.28 9.78a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042l3.25-3.25a.75.75 0 0 1 1.06 0L10 7.94l4.72-4.72a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></svg> Peak</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="app" data-appid="33230">
+<td data-sort="33230">
+<a target="_blank" href="https://store.steampowered.com/app/33230/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/33230/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/33230/capsule_231x87.jpg?t=1750970016" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/33230/">Assassin&apos;s Creed 2</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="1999">$19.99</td>
+<td data-sort="87.83">87.83%</td>
+<td data-sort="1268092800">Mar 2010</td>
+<td data-sort="84064">84,064</td>
+<td data-sort="287" class="green">287</td>
+<td data-sort="3617">3,617</td>
+</tr>
+<tr class="app" data-appid="812140">
+<td data-sort="812140">
+<a target="_blank" href="https://store.steampowered.com/app/812140/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/812140/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/812140/capsule_231x87.jpg?t=1761707173" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/812140/">Assassin&apos;s Creed® Odyssey</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="5999">$59.99</td>
+<td data-sort="87.80">87.80%</td>
+<td data-sort="1538697600">Oct 2018</td>
+<td data-sort="337552">337,552</td>
+<td data-sort="3690" class="green">3,690</td>
+<td data-sort="62069">62,069</td>
+</tr>
+<tr class="app" data-appid="242050">
+<td data-sort="242050">
+<a target="_blank" href="https://store.steampowered.com/app/242050/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/242050/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/242050/capsule_231x87.jpg?t=1752168662" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/242050/">Assassin’s Creed® IV Black Flag™</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="3999">$39.99</td>
+<td data-sort="87.14">87.14%</td>
+<td data-sort="0">—</td>
+<td data-sort="149211">149,211</td>
+<td data-sort="944" class="green">944</td>
+<td data-sort="16049">16,049</td>
+</tr>
+<tr class="app" data-appid="48190">
+<td data-sort="48190">
+<a target="_blank" href="https://store.steampowered.com/app/48190/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/48190/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/48190/capsule_231x87.jpg?t=1759875150" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/48190/">Assassin’s Creed® Brotherhood</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="1999">$19.99</td>
+<td data-sort="86.66">86.66%</td>
+<td data-sort="1300752000">Mar 2011</td>
+<td data-sort="53304">53,304</td>
+<td data-sort="215" class="green">215</td>
+<td data-sort="3848">3,848</td>
+</tr>
+<tr class="app" data-appid="582160">
+<td data-sort="582160">
+<a target="_blank" href="https://store.steampowered.com/app/582160/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/582160/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/582160/capsule_231x87.jpg?t=1759875150" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/582160/">Assassin&apos;s Creed® Origins</a>
+</div>
+</td>
+<td class="" data-sort="85"><b>-85%</b></td>
+<td data-sort="899">$8.99</td>
+<td data-sort="84.74">84.74%</td>
+<td data-sort="1509062400">Oct 2017</td>
+<td data-sort="341933">341,933</td>
+<td data-sort="2110" class="green">2,110</td>
+<td data-sort="41551">41,551</td>
+</tr>
+<tr class="app" data-appid="311560">
+<td data-sort="311560">
+<a target="_blank" href="https://store.steampowered.com/app/311560/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/311560/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/311560/capsule_231x87.jpg?t=1756426446" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/311560/">Assassin’s Creed® Rogue</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="1999">$19.99</td>
+<td data-sort="83.97">83.97%</td>
+<td data-sort="1425945600">Mar 2015</td>
+<td data-sort="72673">72,673</td>
+<td data-sort="262" class="green">262</td>
+<td data-sort="2371">2,371</td>
+</tr>
+<tr class="app" data-appid="201870">
+<td data-sort="201870">
+<a target="_blank" href="https://store.steampowered.com/app/201870/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/201870/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/201870/capsule_231x87.jpg?t=1750886808" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/201870/">Assassin&apos;s Creed® Revelations</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="1999">$19.99</td>
+<td data-sort="82.70">82.70%</td>
+<td data-sort="1322524800">Nov 2011</td>
+<td data-sort="45822">45,822</td>
+<td data-sort="160" class="green">160</td>
+<td data-sort="3105">3,105</td>
+</tr>
+<tr class="app" data-appid="359550">
+<td data-sort="359550">
+<a target="_blank" href="https://store.steampowered.com/app/359550/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/359550/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/359550/429275e1f06a9697892acdc57ae0a9d06bafe9f1/capsule_231x87.jpg" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/359550/">Tom Clancy&apos;s Rainbow Six® Siege X</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="0">Free</td>
+<td data-sort="82.43">82.43%</td>
+<td data-sort="1448928000">Dec 2015</td>
+<td data-sort="1281905">1,281,905</td>
+<td data-sort="35790" class="green">35,790</td>
+<td data-sort="201933">201,933</td>
+</tr>
+<tr class="app" data-appid="460920">
+<td data-sort="460920">
+<a target="_blank" href="https://store.steampowered.com/app/460920/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/460920/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/460920/capsule_231x87.jpg?t=1760896412" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/460920/">Steep™</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="2999">$29.99</td>
+<td data-sort="81.08">81.08%</td>
+<td data-sort="1480636800">Dec 2016</td>
+<td data-sort="136870">136,870</td>
+<td data-sort="163" class="green">163</td>
+<td data-sort="2113">2,113</td>
+</tr>
+<tr class="app" data-appid="2290180">
+<td data-sort="2290180">
+<a target="_blank" href="https://store.steampowered.com/app/2290180/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/2290180/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2290180/7b5617323b621f1c78f9296eea721b3c98c401a1/capsule_231x87.jpg" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/2290180/">Riders Republic</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="3999">$39.99</td>
+<td data-sort="80.81">80.81%</td>
+<td data-sort="1686182400">Jun 2023</td>
+<td data-sort="70539">70,539</td>
+<td data-sort="235" class="green">235</td>
+<td data-sort="8145">8,145</td>
+</tr>
+<tr class="app" data-appid="15100">
+<td data-sort="15100">
+<a target="_blank" href="https://store.steampowered.com/app/15100/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/15100/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/15100/capsule_231x87.jpg?t=1747175350" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/15100/">Assassin&apos;s Creed™: Director&apos;s Cut Edition</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="1999">$19.99</td>
+<td data-sort="79.62">79.62%</td>
+<td data-sort="1207699200">Apr 2008</td>
+<td data-sort="34229">34,229</td>
+<td data-sort="91" class="green">91</td>
+<td data-sort="1468">1,468</td>
+</tr>
+<tr class="app" data-appid="460930">
+<td data-sort="460930">
+<a target="_blank" href="https://store.steampowered.com/app/460930/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/460930/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/460930/capsule_231x87.jpg?t=1761520836" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/460930/">Tom Clancy&apos;s Ghost Recon® Wildlands</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="4999">$49.99</td>
+<td data-sort="78.83">78.83%</td>
+<td data-sort="1488844800">Mar 2017</td>
+<td data-sort="428841">428,841</td>
+<td data-sort="1557" class="green">1,557</td>
+<td data-sort="45704">45,704</td>
+</tr>
+<tr class="app" data-appid="368500">
+<td data-sort="368500">
+<a target="_blank" href="https://store.steampowered.com/app/368500/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/368500/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/368500/capsule_231x87.jpg?t=1761852516" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/368500/">Assassin&apos;s Creed® Syndicate</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="2999">$29.99</td>
+<td data-sort="78.68">78.68%</td>
+<td data-sort="1447891200">Nov 2015</td>
+<td data-sort="179727">179,727</td>
+<td data-sort="332" class="green">332</td>
+<td data-sort="4729">4,729</td>
+</tr>
+<tr class="app" data-appid="775430">
+<td data-sort="775430">
+<a target="_blank" href="https://store.steampowered.com/app/775430/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/775430/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/775430/capsule_231x87.jpg?t=1750970564" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/775430/">Discovery Tour by Assassin’s Creed®: Ancient Egypt</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="1999">$19.99</td>
+<td data-sort="77.24">77.24%</td>
+<td data-sort="1519084800">Feb 2018</td>
+<td data-sort="4131">4,131</td>
+<td data-sort="0" class="green">0</td>
+<td data-sort="31">31</td>
+</tr>
+<tr class="app" data-appid="289650">
+<td data-sort="289650">
+<a target="_blank" href="https://store.steampowered.com/app/289650/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/289650/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/289650/capsule_231x87.jpg?t=1754525879" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/289650/">Assassin&apos;s Creed® Unity</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="2999">$29.99</td>
+<td data-sort="77.10">77.10%</td>
+<td data-sort="1415664000">Nov 2014</td>
+<td data-sort="207412">207,412</td>
+<td data-sort="694" class="green">694</td>
+<td data-sort="12180">12,180</td>
+</tr>
+<tr class="app" data-appid="3159330">
+<td data-sort="3159330">
+<a target="_blank" href="https://store.steampowered.com/app/3159330/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/3159330/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3159330/fe6c8f40f405c8bb3a05788d1316ebd8e3c31b6a/capsule_231x87.jpg" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/3159330/">Assassin’s Creed Shadows</a>
+</div>
+</td>
+<td class="price-discount" data-sort="40"><b>-40%</b></td>
+<td data-sort="4199">$41.99</td>
+<td data-sort="76.32">76.32%</td>
+<td data-sort="1742428800">Mar 2025</td>
+<td data-sort="89456">89,456</td>
+<td data-sort="3240" class="green">3,240</td>
+<td data-sort="64825">64,825</td>
+</tr>
+<tr class="app" data-appid="19980">
+<td data-sort="19980">
+<a target="_blank" href="https://store.steampowered.com/app/19980/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/19980/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/19980/capsule_231x87.jpg?t=1750747124" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/19980/">Prince of Persia®</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="999">$9.99</td>
+<td data-sort="76.16">76.16%</td>
+<td data-sort="1228867200">Dec 2008</td>
+<td data-sort="11341">11,341</td>
+<td data-sort="12" class="green">12</td>
+<td data-sort="428">428</td>
+</tr>
+<tr class="app" data-appid="277590">
+<td data-sort="277590">
+<a target="_blank" href="https://store.steampowered.com/app/277590/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/277590/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/277590/capsule_231x87.jpg?t=1761265259" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/277590/">Assassin&apos;s Creed Freedom Cry</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="1499">$14.99</td>
+<td data-sort="74.59">74.59%</td>
+<td data-sort="1393286400">Feb 2014</td>
+<td data-sort="22408">22,408</td>
+<td data-sort="9" class="green">9</td>
+<td data-sort="447">447</td>
+</tr>
+<tr class="app" data-appid="3035570">
+<td data-sort="3035570">
+<a target="_blank" href="https://store.steampowered.com/app/3035570/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/3035570/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3035570/02aa5646231e38bfbd1d83964063a2d0521979b8/capsule_231x87.jpg" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/3035570/">Assassin&apos;s Creed Mirage</a>
+</div>
+</td>
+<td class="" data-sort="60"><b>-60%</b></td>
+<td data-sort="1999">$19.99</td>
+<td data-sort="74.25">74.25%</td>
+<td data-sort="1729123200">Oct 2024</td>
+<td data-sort="31767">31,767</td>
+<td data-sort="481" class="green">481</td>
+<td data-sort="7870">7,870</td>
+</tr>
+<tr class="app" data-appid="2231380">
+<td data-sort="2231380">
+<a target="_blank" href="https://store.steampowered.com/app/2231380/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/2231380/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2231380/capsule_231x87.jpg?t=1760867578" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/2231380/">Tom Clancy&apos;s Ghost Recon® Breakpoint</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="5999">$59.99</td>
+<td data-sort="72.40">72.40%</td>
+<td data-sort="1674432000">Jan 2023</td>
+<td data-sort="63784">63,784</td>
+<td data-sort="1668" class="green">1,668</td>
+<td data-sort="14382">14,382</td>
+</tr>
+<tr class="app" data-appid="2221920">
+<td data-sort="2221920">
+<a target="_blank" href="https://store.steampowered.com/app/2221920/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/2221920/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2221920/capsule_231x87.jpg?t=1751969544" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/2221920/">Immortals Fenyx Rising</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="3999">$39.99</td>
+<td data-sort="70.81">70.81%</td>
+<td data-sort="1671062400">Dec 2022</td>
+<td data-sort="15178">15,178</td>
+<td data-sort="74" class="green">74</td>
+<td data-sort="2300">2,300</td>
+</tr>
+<tr class="app" data-appid="304390">
+<td data-sort="304390">
+<a target="_blank" href="https://store.steampowered.com/app/304390/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/304390/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/304390/5b4909717c94e99511e459aad48cd2202e191046/capsule_231x87.jpg" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/304390/">FOR HONOR™</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="2999">$29.99</td>
+<td data-sort="68.83">68.83%</td>
+<td data-sort="1710374400">Mar 2024</td>
+<td data-sort="285408">285,408</td>
+<td data-sort="3340" class="green">3,340</td>
+<td data-sort="225831">225,831</td>
+</tr>
+<tr class="app" data-appid="2208920">
+<td data-sort="2208920">
+<a target="_blank" href="https://store.steampowered.com/app/2208920/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/2208920/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2208920/capsule_231x87.jpg?t=1762446147" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/2208920/">Assassin&apos;s Creed Valhalla</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="5999">$59.99</td>
+<td data-sort="68.79">68.79%</td>
+<td data-sort="1670284800">Dec 2022</td>
+<td data-sort="77218">77,218</td>
+<td data-sort="2375" class="green">2,375</td>
+<td data-sort="15679">15,679</td>
+</tr>
+<tr class="app" data-appid="33320">
+<td data-sort="33320">
+<a target="_blank" href="https://store.steampowered.com/app/33320/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/33320/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/33320/capsule_231x87.jpg?t=1757752009" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/33320/">Prince of Persia: The Forgotten Sands™</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="999">$9.99</td>
+<td data-sort="68.30">68.30%</td>
+<td data-sort="1275955200">Jun 2010</td>
+<td data-sort="8323">8,323</td>
+<td data-sort="4" class="green">4</td>
+<td data-sort="356">356</td>
+</tr>
+<tr class="app" data-appid="2853730">
+<td data-sort="2853730">
+<a target="_blank" href="https://store.steampowered.com/app/2853730/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/2853730/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2853730/38c54622a34efd75f1fc98d767d472197f1e7dfc/capsule_231x87.jpg" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/2853730/">Skull and Bones</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="2999">$29.99</td>
+<td data-sort="66.23">66.23%</td>
+<td data-sort="1724284800">Aug 2024</td>
+<td data-sort="15645">15,645</td>
+<td data-sort="410" class="green">410</td>
+<td data-sort="2615">2,615</td>
+</tr>
+<tr class="app" data-appid="2379390">
+<td data-sort="2379390">
+<a target="_blank" href="https://store.steampowered.com/app/2379390/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/2379390/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2379390/capsule_231x87.jpg?t=1761011680" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/2379390/">Tom Clancy’s Rainbow Six® Extraction</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="3999">$39.99</td>
+<td data-sort="64.57">64.57%</td>
+<td data-sort="1686787200">Jun 2023</td>
+<td data-sort="12702">12,702</td>
+<td data-sort="20" class="green">20</td>
+<td data-sort="2338">2,338</td>
+</tr>
+<tr class="app" data-appid="911400">
+<td data-sort="911400">
+<a target="_blank" href="https://store.steampowered.com/app/911400/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/911400/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/911400/capsule_231x87.jpg?t=1756026534" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/911400/">Assassin&apos;s Creed® III Remastered</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="3999">$39.99</td>
+<td data-sort="61.13">61.13%</td>
+<td data-sort="1553817600">Mar 2019</td>
+<td data-sort="19827">19,827</td>
+<td data-sort="358" class="green">358</td>
+<td data-sort="3561">3,561</td>
+</tr>
+<tr class="app" data-appid="260210">
+<td data-sort="260210">
+<a target="_blank" href="https://store.steampowered.com/app/260210/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/260210/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/260210/capsule_231x87.jpg?t=1756786307" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/260210/">Assassin’s Creed® Liberation HD</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="1999">$19.99</td>
+<td data-sort="53.79">53.79%</td>
+<td data-sort="1389744000">Jan 2014</td>
+<td data-sort="15998">15,998</td>
+<td data-sort="10" class="green">10</td>
+<td data-sort="1174">1,174</td>
+</tr>
+<tr class="app" data-appid="2977530">
+<td data-sort="2977530">
+<a target="_blank" href="https://store.steampowered.com/app/2977530/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/2977530/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2977530/f9f6f5004301cef8817fa7e22687663490a65dbd/capsule_231x87.jpg" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/2977530/">Skull and Bones - Free Trial</a>
+<span class="cat">Demo</span>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="0">Free</td>
+<td data-sort="-1">—</td>
+<td data-sort="1748390400">May 2025</td>
+<td data-sort="0">—</td>
+<td data-sort="11" class="green">11</td>
+<td data-sort="117">117</td>
+</tr>
+<tr class="app" data-appid="623990">
+<td data-sort="623990">
+<a target="_blank" href="https://store.steampowered.com/app/623990/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/623990/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/623990/capsule_231x87.jpg?t=1756143255" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/623990/">Tom Clancy&apos;s Rainbow Six Siege - Test Server</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="">—</td>
+<td data-sort="-1">—</td>
+<td data-sort="0">—</td>
+<td data-sort="2047">2,047</td>
+<td data-sort="21" class="green">21</td>
+<td data-sort="20306">20,306</td>
+</tr>
+<tr class="app" data-appid="768350">
+<td data-sort="768350">
+<a target="_blank" href="https://store.steampowered.com/app/768350/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/768350/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/768350/capsule_231x87.jpg?t=1741806609" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/768350/">For Honor - Open Test</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="">—</td>
+<td data-sort="-1">—</td>
+<td data-sort="0">—</td>
+<td data-sort="266">266</td>
+<td data-sort="0" class="green">0</td>
+<td data-sort="809">809</td>
+</tr>
+<tr class="app" data-appid="924720">
+<td data-sort="924720">
+<a target="_blank" href="https://store.steampowered.com/app/924720/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/924720/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/924720/capsule_231x87.jpg?t=1736986552" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/924720/">For Honor - Open Test: Marching Fire</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="">—</td>
+<td data-sort="-1">—</td>
+<td data-sort="0">—</td>
+<td data-sort="0">—</td>
+<td data-sort="0" class="green">0</td>
+<td data-sort="1475">1,475</td>
+</tr>
+<tr class="app" data-appid="584210">
+<td data-sort="584210">
+<a target="_blank" href="https://store.steampowered.com/app/584210/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/584210/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/584210/capsule_231x87.jpg?t=1736986595" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/584210/">Tom Clancy&apos;s Ghost Recon Wildlands Open Beta</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="">—</td>
+<td data-sort="-1">—</td>
+<td data-sort="0">—</td>
+<td data-sort="6531">6,531</td>
+<td data-sort="0" class="green">0</td>
+<td data-sort="33114">33,114</td>
+</tr>
+<tr class="app" data-appid="719690">
+<td data-sort="719690">
+<a target="_blank" href="https://store.steampowered.com/app/719690/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/719690/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/719690/capsule_231x87.jpg?t=1761689554" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/719690/">Ghost Recon Wildlands Ghost War Open Beta</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="">—</td>
+<td data-sort="-1">—</td>
+<td data-sort="0">—</td>
+<td data-sort="527">527</td>
+<td data-sort="0" class="green">0</td>
+<td data-sort="963">963</td>
+</tr>
+<tr class="app" data-appid="550040">
+<td data-sort="550040">
+<a target="_blank" href="https://store.steampowered.com/app/550040/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/550040/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/550040/capsule_231x87.jpg?t=1736986595" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/550040/">Steep Open Beta</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="">—</td>
+<td data-sort="-1">—</td>
+<td data-sort="0">—</td>
+<td data-sort="5223">5,223</td>
+<td data-sort="0" class="green">0</td>
+<td data-sort="11181">11,181</td>
+</tr>
+<tr class="app" data-appid="2383670">
+<td data-sort="2383670">
+<a target="_blank" href="https://store.steampowered.com/app/2383670/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/2383670/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2383670/capsule_231x87.jpg?t=1756248686" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/2383670/">Tom Clancy’s Rainbow Six Extraction Demo</a>
+<span class="cat">Demo</span>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="0">Free</td>
+<td data-sort="-1">—</td>
+<td data-sort="1686787200">Jun 2023</td>
+<td data-sort="0">—</td>
+<td data-sort="1" class="green">1</td>
+<td data-sort="226">226</td>
+</tr>
+<tr class="app" data-appid="396410">
+<td data-sort="396410">
+<a target="_blank" href="https://store.steampowered.com/app/396410/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/396410/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/396410/capsule_231x87.jpg?t=1762298961" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/396410/">Tom Clancy&apos;s Rainbow Six Siege - Beta</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="">—</td>
+<td data-sort="-1">—</td>
+<td data-sort="0">—</td>
+<td data-sort="0">—</td>
+<td data-sort="0">—</td>
+<td data-sort="0">—</td>
+</tr>
+<tr class="app" data-appid="747500">
+<td data-sort="747500">
+<a target="_blank" href="https://store.steampowered.com/app/747500/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/747500/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/747500/capsule_231x87.jpg?t=1752621111" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/747500/">Steep Road To The Olympics Beta</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="">—</td>
+<td data-sort="-1">—</td>
+<td data-sort="0">—</td>
+<td data-sort="0">—</td>
+<td data-sort="0" class="green">0</td>
+<td data-sort="128">128</td>
+</tr>
+<tr class="app" data-appid="19990">
+<td data-sort="19990">
+<a target="_blank" href="https://store.steampowered.com/app/19990/?curator_clanid=4777282&amp;utm_source=SteamDB" class="info-icon" title="Store"></a>
+</td>
+<td class="applogo">
+<a href="/app/19990/" tabindex="-1" aria-hidden="true">
+<img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/19990/capsule_231x87.jpg?t=1732665701" alt="">
+</a>
+</td>
+<td>
+<div>
+<a class="b" href="/app/19990/">Shaun White Snowboarding</a>
+</div>
+</td>
+<td data-sort="0"></td>
+<td data-sort="">—</td>
+<td data-sort="-1">—</td>
+<td data-sort="0">—</td>
+<td data-sort="40">40</td>
+<td data-sort="0" class="green">0</td>
+<td data-sort="4">4</td>
+</tr>
+</tbody>
+</table>
+<div class="pagination app-loading-pagination">
+<button type="button" disabled>…</button>
+</div>
+</div>
+<div class="panel panel-error" id="js-filter-no-results" hidden>
+<svg width="30" height="30" viewBox="0 0 16 16" class="octicon octicon-alert" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>
+<div>No products found matching your filters</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="span12">
+<div>
+<div class="muted-banner" style="margin-bottom:20px">
+This page contains a list of Steam games using the UbisoftAnvil Engine.
+We detect various technologies such as engines and SDKs used by games on Steam from depot file lists.
+This process is entirely automatic and does have mismatches, the rule set we use is
+<a href="https://github.com/SteamDatabase/FileDetectionRuleSets">available on GitHub</a>.
+You can report issues and suggest new rules there.
+<br><br>
+These detections rely on our bot owning games to be able to see the file lists. <a href="/keys/">Submit a key for your game improve our coverage!</a>
+</div>
+<h4>Discount color explanation</h4>
+<div class="discount-faq">
+<span class="discount-faq-color price-discount-major">Blue discount</span>
+<span>Product has not been this cheap before (new historical low).</span>
+<span class="discount-faq-color price-discount">Green discount</span>
+<span>Product is priced on par with lowest recorded price.</span>
+<span class="discount-faq-color price-discount-minor">Purple discount</span>
+<span>Product is priced on par with lowest recorded price in last two years.</span>
+</div>
+<h4>Game icon explanation</h4>
+<table class="table app-state-faq">
+<tbody>
+<tr class="owned"><td>In Library</td></tr>
+<tr class="wished"><td>In Wishlist</td></tr>
+<tr class="infamily"><td>In Family</td></tr>
+<tr class="cart"><td>In Cart</td></tr>
+<tr class="watched"><td>Watched</td></tr>
+<tr class="followed"><td>Followed</td></tr>
+<tr class="ignored"><td>Ignored</td></tr>
+</tbody>
+</table>
+<p class="muted" style="margin-top:60px">This page contains: A list of Steam games using UbisoftAnvil Engine. Ubisoft Anvil, previously known as AnvilNext, is a game engine developed by Ubisoft and first used in Assassin&apos;s Creed released in 2007.</p></div>
+</div>
+</div>
+</div>
+<noscript>
+<style>
+.filters-container,
+#js-filter-loader {
+display: none;
+}
+#js-app {
+display: block !important;
+}
+</style>
+</noscript>
+</div>
+<a href="/donate/" class="armored-headcrab">
+<span>Ad-free Steam data for everyone since 2012<br><b><u>Support SteamDB</u> • Donate or contribute</b></span>
+<svg width="32" height="32" viewBox="0 0 16 16" class="octicon octicon-heart" aria-hidden="true"><path d="m8 14.25.345.666a.75.75 0 0 1-.69 0l-.008-.004-.018-.01a7.152 7.152 0 0 1-.31-.17 22.055 22.055 0 0 1-3.434-2.414C2.045 10.731 0 8.35 0 5.5 0 2.836 2.086 1 4.25 1 5.797 1 7.153 1.802 8 3.02 8.847 1.802 10.203 1 11.75 1 13.914 1 16 2.836 16 5.5c0 2.85-2.045 5.231-3.885 6.818a22.066 22.066 0 0 1-3.744 2.584l-.018.01-.006.003h-.002ZM4.25 2.5c-1.336 0-2.75 1.164-2.75 3 0 2.15 1.58 4.144 3.365 5.682A20.58 20.58 0 0 0 8 13.393a20.58 20.58 0 0 0 3.135-2.211C12.92 9.644 14.5 7.65 14.5 5.5c0-1.836-1.414-3-2.75-3-1.373 0-2.609.986-3.029 2.456a.749.749 0 0 1-1.442 0C6.859 3.486 5.623 2.5 4.25 2.5Z"></path></svg>
+</a>
+<footer class="footer" id="steamdb-org" itemscope itemtype="http://schema.org/Organization" itemprop="publisher">
+<meta itemprop="name" content="SteamDB">
+<meta itemprop="url" content="https://steamdb.info/">
+<meta itemprop="logo" content="https://steamdb.info/static/logos/512px.png">
+<div class="footer-container">
+<nav class="footer-menu hide-small">
+<ul>
+<li class="navigation-heading"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-info" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg> About</li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/discord/">Discord</a></li>
+<li><a href="/discord/bot/">Discord Bot</a></li>
+<li><a href="/faq/">FAQ &amp; help</a></li>
+<li><a href="/donate/">Donate &amp; contribute</a></li>
+<li><a href="/extension/">Browser extension</a></li>
+</ul>
+<ul>
+<li class="navigation-heading"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-search" aria-hidden="true"><path d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-8.997 0A4.499 4.499 0 0 0 11.5 7Z"></path></svg> Discovery</li>
+<li><a href="/sales/">Sales &amp; Deals</a></li>
+<li><a href="/upcoming/">Upcoming releases</a></li>
+<li><a href="/calendar/">Release calendar</a></li>
+<li><a href="/upcoming/free/">Free promotions</a></li>
+<li><a href="/bundles/">Bundles</a></li>
+<li><a href="/pricechanges/">Price changes</a></li>
+<li><a href="/sales/history/">When is next sale?</a></li>
+</ul>
+<ul>
+<li class="navigation-heading"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-tools" aria-hidden="true"><path d="M5.433 2.304A4.492 4.492 0 0 0 3.5 6c0 1.598.832 3.002 2.09 3.802.518.328.929.923.902 1.64v.008l-.164 3.337a.75.75 0 1 1-1.498-.073l.163-3.33c.002-.085-.05-.216-.207-.316A5.996 5.996 0 0 1 2 6a5.993 5.993 0 0 1 2.567-4.92 1.482 1.482 0 0 1 1.673-.04c.462.296.76.827.76 1.423v2.82c0 .082.041.16.11.206l.75.51a.25.25 0 0 0 .28 0l.75-.51A.249.249 0 0 0 9 5.282V2.463c0-.596.298-1.127.76-1.423a1.482 1.482 0 0 1 1.673.04A5.993 5.993 0 0 1 14 6a5.996 5.996 0 0 1-2.786 5.068c-.157.1-.209.23-.207.315l.163 3.33a.752.752 0 0 1-1.094.714.75.75 0 0 1-.404-.64l-.164-3.345c-.027-.717.384-1.312.902-1.64A4.495 4.495 0 0 0 12.5 6a4.492 4.492 0 0 0-1.933-3.696c-.024.017-.067.067-.067.16v2.818a1.75 1.75 0 0 1-.767 1.448l-.75.51a1.75 1.75 0 0 1-1.966 0l-.75-.51A1.75 1.75 0 0 1 5.5 5.282V2.463c0-.092-.043-.142-.067-.159Z"></path></svg> Tools</li>
+<li><a href="/charts/">Charts</a></li>
+<li><a href="/calculator/">Calculator</a></li>
+<li><a href="/patchnotes/">Patch notes</a></li>
+<li><a href="/search/">Search</a></li>
+<li><a href="/instantsearch/">Instant search</a></li>
+<li><a href="https://steamstat.us/">Steam Status</a></li>
+<li><a href="https://steamapi.xpaw.me/">Steam Web API</a></li>
+</ul>
+<ul>
+<li class="navigation-heading"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-database" aria-hidden="true"><path d="M1 3.5c0-.626.292-1.165.7-1.59.406-.422.956-.767 1.579-1.041C4.525.32 6.195 0 8 0c1.805 0 3.475.32 4.722.869.622.274 1.172.62 1.578 1.04.408.426.7.965.7 1.591v9c0 .626-.292 1.165-.7 1.59-.406.422-.956.767-1.579 1.041C11.476 15.68 9.806 16 8 16c-1.805 0-3.475-.32-4.721-.869-.623-.274-1.173-.62-1.579-1.04-.408-.426-.7-.965-.7-1.591Zm1.5 0c0 .133.058.318.282.551.227.237.591.483 1.101.707C4.898 5.205 6.353 5.5 8 5.5c1.646 0 3.101-.295 4.118-.742.508-.224.873-.471 1.1-.708.224-.232.282-.417.282-.55 0-.133-.058-.318-.282-.551-.227-.237-.591-.483-1.101-.707C11.102 1.795 9.647 1.5 8 1.5c-1.646 0-3.101.295-4.118.742-.508.224-.873.471-1.1.708-.224.232-.282.417-.282.55Zm0 4.5c0 .133.058.318.282.551.227.237.591.483 1.101.707C4.898 9.705 6.353 10 8 10c1.646 0 3.101-.295 4.118-.742.508-.224.873-.471 1.1-.708.224-.232.282-.417.282-.55V5.724c-.241.15-.503.286-.778.407C11.475 6.68 9.805 7 8 7c-1.805 0-3.475-.32-4.721-.869a6.15 6.15 0 0 1-.779-.407Zm0 2.225V12.5c0 .133.058.318.282.55.227.237.592.484 1.1.708 1.016.447 2.471.742 4.118.742 1.647 0 3.102-.295 4.117-.742.51-.224.874-.47 1.101-.707.224-.233.282-.418.282-.551v-2.275c-.241.15-.503.285-.778.406-1.247.549-2.917.869-4.722.869-1.805 0-3.475-.32-4.721-.869a6.327 6.327 0 0 1-.779-.406Z"></path></svg> Database</li>
+<li><a href="/tags/">Game tags</a></li>
+<li><a href="/developers/">Developers</a></li>
+<li><a href="/publishers/">Publishers</a></li>
+<li><a href="/badges/">Profile badges</a></li>
+<li><a href="/tech/">Engines &amp; technologies</a></li>
+<li><a href="/stats/releases/">Game releases by year</a></li>
+<li><a href="/history/">Change history</a></li>
+</ul>
+<ul>
+<li class="navigation-heading"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-number" aria-hidden="true"><path d="M9 4.75A.75.75 0 0 1 9.75 4h4a.75.75 0 0 1 .53 1.28l-1.89 1.892c.312.076.604.18.867.319.742.391 1.244 1.063 1.244 2.005 0 .653-.231 1.208-.629 1.627-.386.408-.894.653-1.408.777-1.01.243-2.225.063-3.124-.527a.751.751 0 0 1 .822-1.254c.534.35 1.32.474 1.951.322.306-.073.53-.201.67-.349.129-.136.218-.32.218-.596 0-.308-.123-.509-.444-.678-.373-.197-.98-.318-1.806-.318a.75.75 0 0 1-.53-1.28l1.72-1.72H9.75A.75.75 0 0 1 9 4.75Zm-3.587 5.763c-.35-.05-.77.113-.983.572a.75.75 0 1 1-1.36-.632c.508-1.094 1.589-1.565 2.558-1.425 1 .145 1.872.945 1.872 2.222 0 1.433-1.088 2.192-1.79 2.681-.308.216-.571.397-.772.573H7a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75c0-.69.3-1.211.67-1.61.348-.372.8-.676 1.15-.92.8-.56 1.18-.904 1.18-1.474 0-.473-.267-.69-.587-.737ZM5.604.089A.75.75 0 0 1 6 .75v4.77h.711a.75.75 0 0 1 0 1.5H3.759a.75.75 0 0 1 0-1.5H4.5V2.15l-.334.223a.75.75 0 0 1-.832-1.248l1.5-1a.75.75 0 0 1 .77-.037Z"></path></svg> Rankings</li>
+<li><a href="/stats/gameratings/?min_reviews=500">Top rated games</a></li>
+<li><a href="/stats/globaltopsellers/">Global top sellers</a></li>
+<li><a href="/topsellers/">Weekly top sellers</a></li>
+<li><a href="/stats/mostfollowed/">Most followed games</a></li>
+<li><a href="/stats/mostwished/">Most wishlisted games</a></li>
+<li><a href="/stats/wishlistactivity/">Wishlist activity</a></li>
+<li><a href="/stats/dailyactiveusers/">Daily active users</a></li>
+<li><a href="/badge/13/">Top game owners</a></li>
+<li><a href="/stats/toplevels/">Top profile levels</a></li>
+</ul>
+<ul>
+<li class="navigation-heading"><svg width="16" height="16" viewBox="0 0 16 16" class="octicon octicon-person" aria-hidden="true"><path d="M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></svg> Account</li>
+<li><a href="/login/?page=tech%2FEngine%2FUbisoftAnvil" rel="nofollow">Sign in via Steam</a></li>
+<li><a href="/freepackages/">Free packages</a></li>
+</ul></nav>
+<div class="footer-copyright">
+<div>
+<p>
+SteamDB is a hobby project and is not affiliated with Valve or Steam. All times on the site are UTC.
+<a href="/faq/#what-steamdb-is-not">Fair use disclaimer</a> &middot;
+<a href="/faq/#privacy">Privacy</a>
+</p>
+<p>Steam and the Steam logo are trademarks of Valve Corporation. All other trademarks are property of their respective owners.</p>
+</div>
+<div class="footer-buttons">
+<a class="btn-social tooltipped tooltipped-n" aria-label="Discord" href="/discord/" rel="nofollow">
+<svg viewBox="0 0 16 16" width="24" height="24" class="btn-social-icon" aria-hidden="true">
+<path d="M13.54 2.9a13.2 13.2 0 00-3.25-1c-.02 0-.04 0-.05.02-.15.25-.3.58-.41.83a12.18 12.18 0 00-3.66 0 8.4 8.4 0 00-.41-.83.05.05 0 00-.05-.02 13.16 13.16 0 00-3.28 1.03 13.5 13.5 0 00-2.34 9.14c1.37 1 2.7 1.61 4 2.02.01 0 .04 0 .05-.02.3-.42.58-.86.82-1.33a.05.05 0 00-.03-.07 8.76 8.76 0 01-1.25-.6.05.05 0 010-.08l.24-.2a.05.05 0 01.05 0 9.46 9.46 0 008.05 0h.05l.25.2c.03.02.02.07 0 .09-.4.23-.82.43-1.26.59a.05.05 0 00-.02.07c.24.47.51.91.81 1.33.02.02.04.03.06.02a13.23 13.23 0 004.02-2.06 13.41 13.41 0 00-2.39-9.12zm-8.2 7.31c-.78 0-1.43-.72-1.43-1.6 0-.9.64-1.62 1.44-1.62.8 0 1.45.73 1.43 1.61 0 .89-.63 1.61-1.43 1.61zm5.32 0c-.79 0-1.43-.72-1.43-1.6 0-.9.63-1.62 1.43-1.62.81 0 1.45.73 1.44 1.61 0 .89-.63 1.61-1.44 1.61z"/>
+</svg>
+</a>
+<a class="btn-social tooltipped tooltipped-n" aria-label="Bluesky" href="https://bsky.app/profile/steamdb.info" itemprop="sameAs" rel="me">
+<svg viewBox="0 0 24 24" width="24" height="24" class="btn-social-icon" aria-hidden="true">
+<path d="M12 10.8c-1.09-2.11-4.05-6.05-6.8-8C2.57.95 1.56 1.28.9 1.58.14 1.9 0 3.08 0 3.77s.38 5.65.62 6.48c.82 2.73 3.72 3.66 6.39 3.36-3.92.58-7.39 2-2.83 7.08 5.01 5.19 6.87-1.11 7.82-4.3.95 3.19 2.05 9.26 7.73 4.3 4.27-4.3 1.18-6.5-2.74-7.08a8.74 8.74 0 0 1-.41-.05l.41.05c2.67.3 5.57-.63 6.39-3.36.24-.83.62-5.8.62-6.48 0-.7-.14-1.86-.9-2.2-.66-.3-1.67-.63-4.3 1.23-2.75 1.95-5.71 5.89-6.8 8Z"/>
+</svg>
+</a>
+<a class="btn-social tooltipped tooltipped-n" aria-label="X (Twitter)" href="https://x.com/intent/follow?screen_name=SteamDB" itemprop="sameAs">
+<svg viewBox="0 0 24 24" width="24" height="24" class="btn-social-icon" aria-hidden="true">
+<path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+</svg>
+</a>
+<a class="btn-social tooltipped tooltipped-n" aria-label="Steam Group" href="https://steamcommunity.com/groups/steamdb" itemprop="sameAs">
+<svg viewBox="0 0 16 16" width="24" height="24" class="btn-social-icon" aria-hidden="true">
+<path d="M8 0a8 8 0 00-8 7.47c.07.1.13.21.18.32l4.15 1.67a2.2 2.2 0 011.31-.36l1.97-2.8v-.04c0-1.65 1.37-3 3.05-3a3.03 3.03 0 013.05 3 3.03 3.03 0 01-3.12 3l-2.81 1.97c0 .3-.05.6-.17.9a2.25 2.25 0 01-4.23-.37L.4 10.56A8.01 8.01 0 108 0zm2.66 4.27c-1.12 0-2.03.9-2.03 2s.91 1.99 2.03 1.99c1.12 0 2.03-.9 2.03-2s-.9-2-2.03-2zm0 .5c.85 0 1.53.66 1.53 1.49s-.68 1.5-1.53 1.5c-.84 0-1.52-.67-1.52-1.5s.68-1.5 1.52-1.5zM5.57 9.6c-.22 0-.43.04-.62.11l1.02.42c.65.26.95.99.68 1.62-.27.63-1 .93-1.65.67l-1-.4a1.73 1.73 0 003.13-.08c.18-.42.18-.88.01-1.3A1.69 1.69 0 005.57 9.6z"/>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="hover_wrapper"><div id="js-hover" hidden></div><div class="loader"></div></div>
+<div id="js-screenshots">
+<div class="screenshot-header">
+<span>
+<a href="#" class="screenshot-name"></a>
+</span>
+<span>
+<button type="button" class="btn btn-sm btn-primary screenshot-prev">← Prev</button>
+<span class="screenshot-index"></span>
+<button type="button" class="btn btn-sm btn-primary screenshot-next">Next →</button>
+</span>
+<span>
+<a href="#" target="_blank" class="btn btn-sm screenshot-open hide-small">Open link</a>
+<button type="button" class="btn btn-sm btn-danger screenshot-close">Close<span class="hide-small"> (Esc)</span></button>
+</span>
+</div>
+<div class="screenshot-contain"></div>
+</div>
+<script nonce="6cl2SdKs4zZ5NxmVlJALsLotg9w=">(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.nonce='6cl2SdKs4zZ5NxmVlJALsLotg9w=';d.innerHTML="window.__CF$cv$params={r:'99a77ee3fd46b004',t:'MTc2MjQ2MjU2Nw=='};var a=document.createElement('script');a.nonce='6cl2SdKs4zZ5NxmVlJALsLotg9w=';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" nonce="6cl2SdKs4zZ5NxmVlJALsLotg9w=" data-cf-beacon='{"version":"2024.11.0","token":"91efbe05a59742ddadf5d555608bbe98","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
