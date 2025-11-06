@@ -7,15 +7,11 @@ def fileRead(folderPathName):
         with open(fileName, 'r') as f:
             text = f.read()
             engineFileList.append(text)
-            print(fileName)
-            print(len(text))
             f.close()
     for fileName in glob.glob(os.path.join(folderPath, '*.html')):
         with open(fileName, 'r') as f:
             text = f.read()
             engineFileList.append(text)
-            print(fileName)
-            print(len(text))
             f.close()
     return engineFileList
 """def fileRead():
@@ -25,4 +21,33 @@ def fileRead(folderPathName):
 
 if __name__ == '__main__':
     folderPath = input("Please input the folder path: ")
-    print(fileRead(folderPath))
+    engineFileList = fileRead(folderPath)
+    engineList = [] #contains a list of all engines and the names of the titles
+    tempList = [] #used in the loop to make a list for each engine. first item of the list will be the engine name. then each game name and app id will have an entry
+    for lineString in engineFileList:
+        tempList.clear() #clearing the temp list so that we start fresh for each game engine
+        titleStart = lineString.find("<title>") + 7
+        titleEnd = lineString.find(" · SteamDB")
+        #print(titleStart, titleEnd)
+        tempList.append(lineString[titleStart:titleEnd])
+        tempPosition = titleEnd
+        #print(tempList)
+        #print(len(lineString))
+        while tempPosition < len(lineString): #this loop finds the names and app ids of the games
+            if lineString.find('<a class="b" href="', tempPosition) == -1:
+                break
+            #print("I GOT PASSED THE BREAK CHECK")
+            nameStart = lineString.find('<a class="b" href="', tempPosition)
+            tempPosition = nameStart
+            nameEnd = lineString.find('</a>', tempPosition)
+            nameStart = nameStart + len('<a class="b" href="')
+            tempList.append(lineString[nameStart:nameEnd])
+            tempList[len(tempList)-1] = tempList[len(tempList)-1].replace('/app/', '') #cleaning up the string so its just the appID separated by >
+            tempList[len(tempList) - 1] = tempList[len(tempList) - 1].replace('/"', '')
+            tempPosition = nameEnd
+            #print(lineString[nameStart:nameEnd])
+        engineList.append(tempList)
+    print(engineList)
+
+
+    #print(fileRead(folderPath))
