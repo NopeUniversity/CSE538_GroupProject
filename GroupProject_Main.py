@@ -33,7 +33,7 @@ if __name__ == '__main__':
         tempPosition = titleEnd
         #print(tempList)
         #print(len(lineString))
-        while tempPosition < len(lineString): #this loop finds the names and app ids of the games
+        while tempPosition < len(lineString): #this loop finds appIDs, names, price, rating score, and top player count of the games in that order
             if lineString.find('<a class="b" href="', tempPosition) == -1:
                 break
             #print("I GOT PASSED THE BREAK CHECK")
@@ -42,9 +42,11 @@ if __name__ == '__main__':
             nameEnd = lineString.find('</a>', tempPosition)
             nameStart = nameStart + len('<a class="b" href="')
             tempList.append(lineString[nameStart:nameEnd])
-            tempList[len(tempList)-1] = tempList[len(tempList)-1].replace('/app/', '') #cleaning up the string so its just the appID separated by >
+            tempList[len(tempList)-1] = tempList[len(tempList)-1].replace('/app/', '') #cleaning up the string so its just the appID and name separated by >
             tempList[len(tempList) - 1] = tempList[len(tempList) - 1].replace('/"', '')
-            tempPosition = nameEnd
+            tempPosition = nameEnd #start of trying to get the extra data
+            
+            dataStart = lineString.find('<td>', tempPosition)
             #print(lineString[nameStart:nameEnd])
         engineList.append(tempList)
     print(engineList)
