@@ -110,6 +110,7 @@ class Game:
         self.rating = rating
         self.releaseDate = releaseDate
         self.topPlayerCount = topPlayerCount
+        self.revenueEstimate = cost * topPlayerCount
 
 
 if __name__ == '__main__':
