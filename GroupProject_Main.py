@@ -1,5 +1,8 @@
 import os
 import glob
+import pandas as pd
+import matplotlib.pyplot as plt
+from datetime import datetime
 
 def fileRead(folderPathName):
     folderPath = folderPathName.strip().strip('"').strip("'")  # tiny cleanup
@@ -68,33 +71,51 @@ def htmlToList(engineFileList): #takes in a list of the read files with each ent
             tempPosition = nameEnd  # start of trying to get the extra data
             dataStart = lineString.find('</td>', tempPosition)
             tempPosition = dataStart
-            dataEnd = lineString.find('</tr>', tempPosition)
+            #dataEnd = lineString.find('</tr>', tempPosition)
             dataStart = lineString.find('<td data-sort="', tempPosition) #getting the position of the discount
-            tempPosition = dataStart
+            dataEnd = lineString.find('>', dataStart)
+            tempPosition = dataEnd
 
-            costStart = lineString.find('<td data-sort="', tempPosition) #getting the position of the cost
-            costEnd = lineString.find('">', costStart)
+            costStart = lineString.find('"', tempPosition)
+            #costStart = lineString.find('<td data-sort="', tempPosition) #getting the position of the cost
+            costEnd = lineString.find('>', costStart)
             tempCost = lineString[costStart:costEnd]
+            tempCost = tempCost.replace('"', '')
+            print(tempCost)
             tempPosition = costEnd
 
-            ratingStart = lineString.find('<td data-sort="', tempPosition)
-            ratingEnd = lineString.find('">', ratingStart)
+            ratingStart = lineString.find('"', tempPosition)
+            #ratingStart = lineString.find('<td data-sort="', tempPosition)
+            ratingEnd = lineString.find('>', ratingStart)
             tempRating = lineString[ratingStart:ratingEnd]
+            tempRating = tempRating.replace('"', '')
+            """if len(tempRating) < 2:
+                tempRating = -1"""
             tempPosition = ratingEnd
 
-            releaseStart = lineString.find('<td data-sort="', tempPosition)
-            releaseEnd = lineString.find('">', releaseStart)
+            releaseStart = lineString.find('"', tempPosition)
+            #releaseStart = lineString.find('<td data-sort="', tempPosition)
+            releaseEnd = lineString.find('>', releaseStart)
             tempRelease = lineString[releaseStart:releaseEnd]
+            tempRelease = tempRelease.replace('"', '')
+            print(tempRelease)
             tempPosition = releaseEnd
 
-            dataStart = lineString.find('<td data-sort="', tempPosition)  #position of following count
+
+            dataStart = lineString.find('="', tempPosition)  #position of following count
             tempPosition = dataStart
             dataStart = lineString.find('<td data-sort="', tempPosition) #position of online count
             tempPosition = dataStart
+            dataStart = lineString.find('>', tempPosition)
+            tempPosition = dataStart
 
-            topPlayerCountStart = lineString.find('<td data-sort="', tempPosition)
-            topPlayerCountEnd = lineString.find('">', topPlayerCountStart)
+            topPlayerCountStart = lineString.find('"', tempPosition)
+            #topPlayerCountStart = lineString.find('<td data-sort="', tempPosition)
+            topPlayerCountEnd = lineString.find('>', topPlayerCountStart)
             tempTopPlayerCount = lineString[topPlayerCountStart:topPlayerCountEnd]
+            tempTopPlayerCount = tempTopPlayerCount.replace('"', '')
+            """if len(tempTopPlayerCount) < 1:
+                tempTopPlayerCount = -1"""
 
             tempGame = Game(tempID, tempName, tempCost, tempRating, tempRelease, tempTopPlayerCount)
             tempList.append(tempGame)
@@ -106,11 +127,65 @@ class Game:
     def __init__(self, id, title, cost, rating, releaseDate, topPlayerCount):
         self.id = id
         self.title = title
-        self.cost = cost
-        self.rating = rating
-        self.releaseDate = releaseDate
-        self.topPlayerCount = topPlayerCount
-        self.revenueEstimate = cost * topPlayerCount #changing this to just make it quick to push
+        try:
+            #self.cost = cost
+            self.cost = float(cost)
+        except:
+            self.cost = -1
+        try:
+            self.rating = float(rating)
+        except:
+            self.rating = -1
+        #self.releaseDate = releaseDate
+        try:
+            #self.releaseDate = releaseDate
+            self.releaseDate = datetime.fromtimestamp(int(releaseDate))
+        except:
+            self.releaseDate = "Unreleased"
+        try:
+            #self.topPlayerCount = topPlayerCount
+            self.topPlayerCount = float(topPlayerCount) #will be -1 if no top player count
+        except:
+            self.topPlayerCount = -1
+        try:
+            #self.revenueEstimate = "estimated"
+            self.revenueEstimate = float(cost) * float(topPlayerCount) #changing this to just make it quick to push
+        except:
+            self.revenueEstimate = -1
+
+"""def engineListToDict(engineList):
+    engineDict = {}
+    idList = []
+    nameList = []
+    costList = []
+    ratingList = []
+    releaseDateList = []
+    topPlayerCountList = []
+    revenueEstimateList = []
+    for list in engineList:
+        tempKey = list[0]
+        index = 1
+        while index < len(list):
+            idList.append(list[index].id.copy())
+            nameList.append(list[index].name.copy())
+            costList.append(list[index].cost.copy())
+            ratingList.append(list[index].rating.copy())
+            releaseDateList.append(list[index].releaseDate.copy())
+            topPlayerCountList.append(list[index].topPlayerCount.copy())
+            revenueEstimateList.append(list[index].revenueEstimate.copy())
+            index += 1
+        data = {
+            "ID": idList.copy(),
+            "Name": nameList.copy(),
+            "Cost": costList.copy(),
+            "Rating": ratingList.copy(),
+            "ReleaseDate": releaseDateList.copy(),
+            "Top Player Count": topPlayerCountList.copy(),
+            "Estimated Revenue": revenueEstimateList.copy(),
+        }
+        df = pd.DataFrame(data)
+        engineDict[tempKey] = df.copy()
+    return engineDict"""
 
 
 if __name__ == '__main__':
@@ -118,11 +193,22 @@ if __name__ == '__main__':
     engineFileList = fileRead(folderPath)
 
     engineList = htmlToList(engineFileList)
-
-
+    #engineDict = engineListToDict(engineList)
+    for list in engineList:
+        index = 1
+        while index < len(list):
+            print(list[index].id)
+            print(list[index].title)
+            print(list[index].cost)
+            print(list[index].rating)
+            print(list[index].releaseDate)
+            print(list[index].topPlayerCount)
+            print(list[index].revenueEstimate)
+            index += 1
 
         #engineList[]
         #print(engineList[0])
-    print(len(engineList))
+    #print(len(engineList))
+    #print(engineDict)
 
     # print(fileRead(folderPath))
